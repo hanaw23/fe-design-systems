@@ -1,0 +1,16 @@
+{
+  "name": "fe-design-systems",
+  "version": "1.0.0",
+  "description": "Package design system based on AntDesign and built for React with Next.",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {},
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.3"
+  }
+}
