@@ -28,7 +28,19 @@ var theme = {
 // src/DesignSystemProvider.tsx
 import { jsx as jsx2 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
-  return /* @__PURE__ */ jsx2(ConfigProvider, { theme: customTheme ?? theme, children });
+  const mergedTheme = {
+    ...theme,
+    ...customTheme,
+    token: {
+      ...theme.token,
+      ...customTheme?.token
+    },
+    components: {
+      ...theme.components,
+      ...customTheme?.components
+    }
+  };
+  return /* @__PURE__ */ jsx2(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,

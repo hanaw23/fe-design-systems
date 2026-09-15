@@ -20,3 +20,19 @@ export const Primary: Story = {
     children: "Button",
   },
 };
+
+export const Danger: Story = {
+  args: {
+    type: "primary",
+    danger: true,
+    children: "Delete",
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    type: "primary",
+    loading: true,
+    children: "Submitting",
+  },
+};

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { ConfigProvider } from "antd";
 import type { ThemeConfig } from "antd";
 
-import { theme } from "./theme";
+import { theme as defaultTheme } from "./theme";
 
 type DesignSystemProviderProps = {
   children: ReactNode;
@@ -10,5 +10,20 @@ type DesignSystemProviderProps = {
 };
 
 export const DesignSystemProvider = ({ children, theme: customTheme }: DesignSystemProviderProps) => {
-  return <ConfigProvider theme={customTheme ?? theme}>{children}</ConfigProvider>;
+  const mergedTheme: ThemeConfig = {
+    ...defaultTheme,
+    ...customTheme,
+
+    token: {
+      ...defaultTheme.token,
+      ...customTheme?.token,
+    },
+
+    components: {
+      ...defaultTheme.components,
+      ...customTheme?.components,
+    },
+  };
+
+  return <ConfigProvider theme={mergedTheme}>{children}</ConfigProvider>;
 };
