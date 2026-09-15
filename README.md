@@ -12,10 +12,17 @@ after the changes you have to build the package.
 
 1.  React Package:
     If you only updated only the component inside React package, you can write and run the below command on your terminal.
-    `npm run build -w @fe-design-systems/react`
+
+    ```bash
+    npm run build -w @fe-design-systems/react
+    ```
+
 2.  Tokens Package
     If you only updated the token colors inside Tokens package, you can write and run the below command on your terminal.
-    `npm run build -w @fe-design-systems/tokens`
+
+    ```bash
+    npm run build -w @fe-design-systems/tokens
+    ```
 
     after that you need to build the react package, using the command that have been stated from the first point.
 
@@ -23,4 +30,6 @@ after the changes you have to build the package.
 
 To see what have been changed from react package, you can run this command in your terminal:
 
-`npm run storybook -w @fe-design-systems/storybook`
+```bash
+npm run storybook -w @fe-design-systems/storybook
+```
