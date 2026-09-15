@@ -5,11 +5,33 @@ function Button(props) {
   return /* @__PURE__ */ jsx(AntButton, { ...props });
 }
 
+// src/DesignSystemProvider.tsx
+import { ConfigProvider } from "antd";
+
+// src/theme.ts
+import { semanticTokens } from "@fe-design-systems/tokens";
+var theme = {
+  token: {
+    colorPrimary: semanticTokens.colorPrimary,
+    colorText: semanticTokens.colorText,
+    colorBorder: semanticTokens.colorBorder,
+    colorBgBase: semanticTokens.colorBackground,
+    borderRadius: semanticTokens.borderRadius
+  }
+};
+
+// src/DesignSystemProvider.tsx
+import { jsx as jsx2 } from "react/jsx-runtime";
+var DesignSystemProvider = ({ children }) => {
+  return /* @__PURE__ */ jsx2(ConfigProvider, { theme, children });
+};
+
 // src/index.ts
-import { primitiveTokens, semanticTokens } from "@fe-design-systems/tokens";
+import { primitiveTokens, semanticTokens as semanticTokens2 } from "@fe-design-systems/tokens";
 export {
   Button,
+  DesignSystemProvider,
   primitiveTokens,
-  semanticTokens
+  semanticTokens2 as semanticTokens
 };
 //# sourceMappingURL=index.mjs.map

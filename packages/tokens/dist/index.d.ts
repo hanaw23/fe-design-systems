@@ -20,9 +20,9 @@ declare const primitiveTokens: {
         readonly xl: "32px";
     };
     readonly radius: {
-        readonly sm: "4px";
-        readonly md: "8px";
-        readonly lg: "12px";
+        readonly sm: 4;
+        readonly md: 8;
+        readonly lg: 12;
     };
 };
 declare const semanticTokens: {
@@ -35,7 +35,7 @@ declare const semanticTokens: {
     readonly colorPlaceholder: "#2B7CAB";
     readonly colorBackground: "#ffffff";
     readonly colorBackgroundSecondary: "#F8FAFC";
-    readonly borderRadius: "8px";
+    readonly borderRadius: 8;
 };
 
 export { primitiveTokens, semanticTokens };

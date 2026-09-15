@@ -46,9 +46,9 @@ var primitiveTokens = {
     xl: "32px"
   },
   radius: {
-    sm: "4px",
-    md: "8px",
-    lg: "12px"
+    sm: 4,
+    md: 8,
+    lg: 12
   }
 };
 var semanticTokens = {

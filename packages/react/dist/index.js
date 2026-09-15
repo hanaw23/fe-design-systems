@@ -21,8 +21,9 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
-  primitiveTokens: () => import_tokens.primitiveTokens,
-  semanticTokens: () => import_tokens.semanticTokens
+  DesignSystemProvider: () => DesignSystemProvider,
+  primitiveTokens: () => import_tokens2.primitiveTokens,
+  semanticTokens: () => import_tokens2.semanticTokens
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -33,11 +34,33 @@ function Button(props) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Button, { ...props });
 }
 
-// src/index.ts
+// src/DesignSystemProvider.tsx
+var import_antd2 = require("antd");
+
+// src/theme.ts
 var import_tokens = require("@fe-design-systems/tokens");
+var theme = {
+  token: {
+    colorPrimary: import_tokens.semanticTokens.colorPrimary,
+    colorText: import_tokens.semanticTokens.colorText,
+    colorBorder: import_tokens.semanticTokens.colorBorder,
+    colorBgBase: import_tokens.semanticTokens.colorBackground,
+    borderRadius: import_tokens.semanticTokens.borderRadius
+  }
+};
+
+// src/DesignSystemProvider.tsx
+var import_jsx_runtime2 = require("react/jsx-runtime");
+var DesignSystemProvider = ({ children }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.ConfigProvider, { theme, children });
+};
+
+// src/index.ts
+var import_tokens2 = require("@fe-design-systems/tokens");
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  DesignSystemProvider,
   primitiveTokens,
   semanticTokens
 });
