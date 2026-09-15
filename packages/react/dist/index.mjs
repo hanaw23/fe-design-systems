@@ -5,6 +5,13 @@ function Button(props) {
   return /* @__PURE__ */ jsx(AntButton, { ...props });
 }
 
+// src/Input/Input.tsx
+import { Input as AntInput } from "antd";
+import { jsx as jsx2 } from "react/jsx-runtime";
+function Input(props) {
+  return /* @__PURE__ */ jsx2(AntInput, { ...props });
+}
+
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";
 
@@ -26,7 +33,7 @@ var theme = {
 };
 
 // src/DesignSystemProvider.tsx
-import { jsx as jsx2 } from "react/jsx-runtime";
+import { jsx as jsx3 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -40,10 +47,11 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.components
     }
   };
-  return /* @__PURE__ */ jsx2(ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ jsx3(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,
-  DesignSystemProvider
+  DesignSystemProvider,
+  Input
 };
 //# sourceMappingURL=index.mjs.map
