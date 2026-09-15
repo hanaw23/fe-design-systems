@@ -54,8 +54,8 @@ var theme = {
 
 // src/DesignSystemProvider.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var DesignSystemProvider = ({ children }) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.ConfigProvider, { theme, children });
+var DesignSystemProvider = ({ children, theme: customTheme }) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.ConfigProvider, { theme: customTheme ?? theme, children });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {

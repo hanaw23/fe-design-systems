@@ -27,8 +27,8 @@ var theme = {
 
 // src/DesignSystemProvider.tsx
 import { jsx as jsx2 } from "react/jsx-runtime";
-var DesignSystemProvider = ({ children }) => {
-  return /* @__PURE__ */ jsx2(ConfigProvider, { theme, children });
+var DesignSystemProvider = ({ children, theme: customTheme }) => {
+  return /* @__PURE__ */ jsx2(ConfigProvider, { theme: customTheme ?? theme, children });
 };
 export {
   Button,
