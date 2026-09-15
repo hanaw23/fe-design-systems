@@ -50,6 +50,8 @@ var theme = {
     colorPrimary: import_tokens.semanticTokens.colorPrimary,
     colorText: import_tokens.semanticTokens.colorText,
     colorBorder: import_tokens.semanticTokens.colorBorder,
+    colorTextPlaceholder: import_tokens.semanticTokens.colorTextSecondary,
+    colorError: import_tokens.semanticTokens.colorError,
     colorBgBase: import_tokens.semanticTokens.colorBackground,
     borderRadius: import_tokens.semanticTokens.borderRadius
   },

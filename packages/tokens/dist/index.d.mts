@@ -28,11 +28,12 @@ declare const primitiveTokens: {
 declare const semanticTokens: {
     readonly colorPrimary: "#393E41";
     readonly colorSecondary: "#8E1A0D";
-    readonly colorBorder: "#2B7CAB";
+    readonly colorBorder: "#9CA3AF";
     readonly colorDisabled: "#E5E7EB";
+    readonly colorError: "#FF151A";
+    readonly colorWarning: "#F2811D";
     readonly colorText: "#1C1E1F";
-    readonly colorTextDisabled: "#9CA3AF";
-    readonly colorPlaceholder: "#2B7CAB";
+    readonly colorTextSecondary: "#9CA3AF";
     readonly colorBackground: "#ffffff";
     readonly colorBackgroundSecondary: "#F8FAFC";
     readonly borderRadius: 8;

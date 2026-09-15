@@ -22,6 +22,8 @@ var theme = {
     colorPrimary: semanticTokens.colorPrimary,
     colorText: semanticTokens.colorText,
     colorBorder: semanticTokens.colorBorder,
+    colorTextPlaceholder: semanticTokens.colorTextSecondary,
+    colorError: semanticTokens.colorError,
     colorBgBase: semanticTokens.colorBackground,
     borderRadius: semanticTokens.borderRadius
   },

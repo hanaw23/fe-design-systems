@@ -54,11 +54,12 @@ var primitiveTokens = {
 var semanticTokens = {
   colorPrimary: primitiveTokens.color.gray600,
   colorSecondary: primitiveTokens.color.red700,
-  colorBorder: primitiveTokens.color.blue300,
+  colorBorder: primitiveTokens.color.gray400,
   colorDisabled: primitiveTokens.color.gray200,
+  colorError: primitiveTokens.color.red500,
+  colorWarning: primitiveTokens.color.yellow600,
   colorText: primitiveTokens.color.gray900,
-  colorTextDisabled: primitiveTokens.color.gray400,
-  colorPlaceholder: primitiveTokens.color.blue300,
+  colorTextSecondary: primitiveTokens.color.gray400,
   colorBackground: primitiveTokens.color.white,
   colorBackgroundSecondary: primitiveTokens.color.gray100,
   borderRadius: primitiveTokens.radius.md
