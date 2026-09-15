@@ -12,6 +12,13 @@ function Input(props) {
   return /* @__PURE__ */ jsx2(AntInput, { ...props });
 }
 
+// src/Select/Select.tsx
+import { Select as AntSelect } from "antd";
+import { jsx as jsx3 } from "react/jsx-runtime";
+var Select = (props) => {
+  return /* @__PURE__ */ jsx3(AntSelect, { ...props });
+};
+
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";
 
@@ -35,7 +42,7 @@ var theme = {
 };
 
 // src/DesignSystemProvider.tsx
-import { jsx as jsx3 } from "react/jsx-runtime";
+import { jsx as jsx4 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -49,11 +56,12 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.components
     }
   };
-  return /* @__PURE__ */ jsx3(ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ jsx4(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,
   DesignSystemProvider,
-  Input
+  Input,
+  Select
 };
 //# sourceMappingURL=index.mjs.map

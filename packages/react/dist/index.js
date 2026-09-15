@@ -22,7 +22,8 @@ var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
   DesignSystemProvider: () => DesignSystemProvider,
-  Input: () => Input
+  Input: () => Input,
+  Select: () => Select
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -40,8 +41,15 @@ function Input(props) {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { ...props });
 }
 
-// src/DesignSystemProvider.tsx
+// src/Select/Select.tsx
 var import_antd3 = require("antd");
+var import_jsx_runtime3 = require("react/jsx-runtime");
+var Select = (props) => {
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Select, { ...props });
+};
+
+// src/DesignSystemProvider.tsx
+var import_antd4 = require("antd");
 
 // src/theme.ts
 var import_tokens = require("@fe-design-systems/tokens");
@@ -63,7 +71,7 @@ var theme = {
 };
 
 // src/DesignSystemProvider.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -77,12 +85,13 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.components
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.ConfigProvider, { theme: mergedTheme, children });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
   DesignSystemProvider,
-  Input
+  Input,
+  Select
 });
 //# sourceMappingURL=index.js.map

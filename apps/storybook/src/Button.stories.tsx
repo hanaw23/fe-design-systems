@@ -21,6 +21,13 @@ export const Primary: Story = {
   },
 };
 
+export const Variants: Story = {
+  args: {
+    type: "primary",
+    children: "Button",
+  },
+};
+
 export const Danger: Story = {
   args: {
     type: "primary",
