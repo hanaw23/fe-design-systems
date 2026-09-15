@@ -21,9 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
-  DesignSystemProvider: () => DesignSystemProvider,
-  primitiveTokens: () => import_tokens2.primitiveTokens,
-  semanticTokens: () => import_tokens2.semanticTokens
+  DesignSystemProvider: () => DesignSystemProvider
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -46,6 +44,11 @@ var theme = {
     colorBorder: import_tokens.semanticTokens.colorBorder,
     colorBgBase: import_tokens.semanticTokens.colorBackground,
     borderRadius: import_tokens.semanticTokens.borderRadius
+  },
+  components: {
+    Button: {
+      borderRadius: import_tokens.semanticTokens.borderRadius
+    }
   }
 };
 
@@ -54,14 +57,9 @@ var import_jsx_runtime2 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children }) => {
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.ConfigProvider, { theme, children });
 };
-
-// src/index.ts
-var import_tokens2 = require("@fe-design-systems/tokens");
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
-  DesignSystemProvider,
-  primitiveTokens,
-  semanticTokens
+  DesignSystemProvider
 });
 //# sourceMappingURL=index.js.map

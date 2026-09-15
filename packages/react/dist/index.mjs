@@ -17,6 +17,11 @@ var theme = {
     colorBorder: semanticTokens.colorBorder,
     colorBgBase: semanticTokens.colorBackground,
     borderRadius: semanticTokens.borderRadius
+  },
+  components: {
+    Button: {
+      borderRadius: semanticTokens.borderRadius
+    }
   }
 };
 
@@ -25,13 +30,8 @@ import { jsx as jsx2 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children }) => {
   return /* @__PURE__ */ jsx2(ConfigProvider, { theme, children });
 };
-
-// src/index.ts
-import { primitiveTokens, semanticTokens as semanticTokens2 } from "@fe-design-systems/tokens";
 export {
   Button,
-  DesignSystemProvider,
-  primitiveTokens,
-  semanticTokens2 as semanticTokens
+  DesignSystemProvider
 };
 //# sourceMappingURL=index.mjs.map

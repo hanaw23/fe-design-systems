@@ -8,4 +8,9 @@ export const theme = {
     colorBgBase: semanticTokens.colorBackground,
     borderRadius: semanticTokens.borderRadius,
   },
+  components: {
+    Button: {
+      borderRadius: semanticTokens.borderRadius,
+    },
+  },
 };
