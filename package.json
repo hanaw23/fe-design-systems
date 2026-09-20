@@ -7,7 +7,12 @@
     "packages/*",
     "apps/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "storybook": "npm run storybook -w @fe-design-systems/storybook",
+    "build:react": "npm run build -w @fe-design-systems/react",
+    "build:tokens": "npm run build -w @fe-design-systems/tokens",
+    "build": "npm run build:tokens && npm run build:react"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^19.3.0",

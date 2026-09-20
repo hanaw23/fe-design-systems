@@ -7,16 +7,19 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
-    "storybook": "^10.6.0",
-    "@storybook/react-vite": "^10.6.0",
     "@chromatic-com/storybook": "latest",
-    "@storybook/addon-vitest": "^10.6.0",
     "@storybook/addon-a11y": "^10.6.0",
     "@storybook/addon-docs": "^10.6.0",
     "@storybook/addon-onboarding": "^10.6.0",
-    "vitest": "latest",
-    "playwright": "latest",
+    "@storybook/addon-vitest": "^10.6.0",
+    "@storybook/react-vite": "^10.6.0",
     "@vitest/browser-playwright": "latest",
-    "@vitest/coverage-v8": "latest"
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest",
+    "storybook": "^10.6.0",
+    "vitest": "latest"
+  },
+  "dependencies": {
+    "@fe-design-systems/react": "^0.1.0"
   }
 }
