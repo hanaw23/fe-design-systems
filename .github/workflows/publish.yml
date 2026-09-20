@@ -2,6 +2,15 @@ name: Publish Packages
 
 on:
   workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to publish"
+        required: true
+        type: choice
+        options:
+          - react
+          - tokens
+          - both
 
 permissions:
   contents: read
@@ -29,10 +38,13 @@ jobs:
         run: npm run build:tokens
 
       - name: Build React
+        if: inputs.package == 'react' || inputs.package == 'both'
         run: npm run build:react
 
       - name: Publish tokens
+        if: inputs.package == 'tokens' || inputs.package == 'both'
         run: npm publish -w @fe-design-systems/tokens --access public
 
       - name: Publish React
+        if: inputs.package == 'react' || inputs.package == 'both'
         run: npm publish -w @fe-design-systems/react --access public
