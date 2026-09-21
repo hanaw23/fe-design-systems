@@ -57,3 +57,10 @@ export const DisabledChecked: Story = {
     checked: true,
   },
 };
+
+export const Indeterminate: Story = {
+  args: {
+    children: "Select all",
+    indeterminate: true,
+  },
+};

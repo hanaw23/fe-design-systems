@@ -303,15 +303,17 @@ function Select({ width, height, style, disabled, ...props }) {
 import { Checkbox as AntCheckbox } from "antd";
 import { semanticTokens as semanticTokens2 } from "@fe-design-systems/tokens";
 import { jsx as jsx4 } from "react/jsx-runtime";
-function Checkbox({ variant = "primary", styles, ...props }) {
+function Checkbox({ variant = "primary", styles, disabled, ...props }) {
   const color = variant === "secondary" ? semanticTokens2.colorSecondary : semanticTokens2.colorPrimary;
   return /* @__PURE__ */ jsx4(
     AntCheckbox,
     {
       ...props,
+      disabled,
       styles: {
         icon: {
-          backgroundColor: color
+          backgroundColor: color,
+          borderColor: "transparent"
         }
       }
     }

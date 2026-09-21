@@ -9,15 +9,17 @@ export type CheckboxProps = AntCheckboxProps & {
   variant?: CheckboxVariant;
 };
 
-export function Checkbox({ variant = "primary", styles, ...props }: CheckboxProps) {
+export function Checkbox({ variant = "primary", styles, disabled, ...props }: CheckboxProps) {
   const color = variant === "secondary" ? semanticTokens.colorSecondary : semanticTokens.colorPrimary;
 
   return (
     <AntCheckbox
       {...props}
+      disabled={disabled}
       styles={{
         icon: {
           backgroundColor: color,
+          borderColor: "transparent",
         },
       }}
     />

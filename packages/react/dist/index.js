@@ -333,15 +333,17 @@ function Select({ width, height, style, disabled, ...props }) {
 var import_antd4 = require("antd");
 var import_tokens2 = require("@fe-design-systems/tokens");
 var import_jsx_runtime4 = require("react/jsx-runtime");
-function Checkbox({ variant = "primary", styles, ...props }) {
+function Checkbox({ variant = "primary", styles, disabled, ...props }) {
   const color = variant === "secondary" ? import_tokens2.semanticTokens.colorSecondary : import_tokens2.semanticTokens.colorPrimary;
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_antd4.Checkbox,
     {
       ...props,
+      disabled,
       styles: {
         icon: {
-          backgroundColor: color
+          backgroundColor: color,
+          borderColor: "transparent"
         }
       }
     }
