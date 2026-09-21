@@ -190,6 +190,16 @@ var selectTheme = {
     borderColor: semanticTokens.colorDisabledr
   }
 };
+var inputTheme = {
+  default: {
+    color: semanticTokens.colorText,
+    borderColor: semanticTokens.colorBorder
+  },
+  danger: {
+    color: semanticTokens.colorError,
+    borderColor: semanticTokens.colorError
+  }
+};
 
 // src/Button/Button.tsx
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -220,9 +230,45 @@ function Button({ variant = "primary", appearance = "solid", style, disabled, pr
 
 // src/Input/Input.tsx
 import { Input as AntInput } from "antd";
-import { jsx as jsx2 } from "react/jsx-runtime";
+import { Fragment, jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
 function Input(props) {
-  return /* @__PURE__ */ jsx2(AntInput, { ...props });
+  const { width, height, password, otp, textarea, ...componentProps } = props;
+  const isError = props?.status === "error" && props?.error;
+  const inputStyles = isError ? {
+    input: {
+      color: inputTheme.danger.color
+    }
+  } : void 0;
+  const style = {
+    width,
+    height,
+    inputStyles,
+    ...props.style
+  };
+  const componentInput = () => {
+    if (otp) {
+      return /* @__PURE__ */ jsx2(AntInput.OTP, { ...componentProps, style });
+    }
+    if (password) {
+      return /* @__PURE__ */ jsx2(AntInput.Password, { ...componentProps, style });
+    }
+    if (textarea) {
+      return /* @__PURE__ */ jsx2(AntInput.TextArea, { ...componentProps, style });
+    }
+    return /* @__PURE__ */ jsx2(AntInput, { ...componentProps, style });
+  };
+  return /* @__PURE__ */ jsxs2(Fragment, { children: [
+    componentInput(),
+    isError && /* @__PURE__ */ jsx2(
+      "div",
+      {
+        style: {
+          marginTop: 2
+        },
+        children: props?.error
+      }
+    )
+  ] });
 }
 
 // src/Select/Select.tsx

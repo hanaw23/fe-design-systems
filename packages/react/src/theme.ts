@@ -219,3 +219,15 @@ export const selectTheme = {
     borderColor: semanticTokens.colorDisabledr,
   },
 } as const;
+
+export const inputTheme = {
+  default: {
+    color: semanticTokens.colorText,
+    borderColor: semanticTokens.colorBorder,
+  },
+
+  danger: {
+    color: semanticTokens.colorError,
+    borderColor: semanticTokens.colorError,
+  },
+} as const;

@@ -219,6 +219,16 @@ var selectTheme = {
     borderColor: import_tokens.semanticTokens.colorDisabledr
   }
 };
+var inputTheme = {
+  default: {
+    color: import_tokens.semanticTokens.colorText,
+    borderColor: import_tokens.semanticTokens.colorBorder
+  },
+  danger: {
+    color: import_tokens.semanticTokens.colorError,
+    borderColor: import_tokens.semanticTokens.colorError
+  }
+};
 
 // src/Button/Button.tsx
 var import_jsx_runtime = require("react/jsx-runtime");
@@ -251,7 +261,43 @@ function Button({ variant = "primary", appearance = "solid", style, disabled, pr
 var import_antd2 = require("antd");
 var import_jsx_runtime2 = require("react/jsx-runtime");
 function Input(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { ...props });
+  const { width, height, password, otp, textarea, ...componentProps } = props;
+  const isError = props?.status === "error" && props?.error;
+  const inputStyles = isError ? {
+    input: {
+      color: inputTheme.danger.color
+    }
+  } : void 0;
+  const style = {
+    width,
+    height,
+    inputStyles,
+    ...props.style
+  };
+  const componentInput = () => {
+    if (otp) {
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.OTP, { ...componentProps, style });
+    }
+    if (password) {
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.Password, { ...componentProps, style });
+    }
+    if (textarea) {
+      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.TextArea, { ...componentProps, style });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { ...componentProps, style });
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+    componentInput(),
+    isError && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+      "div",
+      {
+        style: {
+          marginTop: 2
+        },
+        children: props?.error
+      }
+    )
+  ] });
 }
 
 // src/Select/Select.tsx
