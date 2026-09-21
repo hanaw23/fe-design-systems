@@ -207,6 +207,18 @@ var buttonTheme = {
     }
   }
 };
+var selectTheme = {
+  default: {
+    background: import_tokens.semanticTokens.colorBackground,
+    color: import_tokens.semanticTokens.colorText,
+    borderColor: import_tokens.semanticTokens.colorDisabled
+  },
+  disabled: {
+    background: import_tokens.semanticTokens.colorDisabled,
+    color: import_tokens.semanticTokens.colorTextDisabled,
+    borderColor: import_tokens.semanticTokens.colorDisabledr
+  }
+};
 
 // src/Button/Button.tsx
 var import_jsx_runtime = require("react/jsx-runtime");
@@ -245,9 +257,27 @@ function Input(props) {
 // src/Select/Select.tsx
 var import_antd3 = require("antd");
 var import_jsx_runtime3 = require("react/jsx-runtime");
-var Select = (props) => {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_antd3.Select, { ...props });
-};
+function Select({ width, height, style, disabled, ...props }) {
+  const currentTheme = disabled ? selectTheme.disabled : selectTheme.default;
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    import_antd3.Select,
+    {
+      ...props,
+      disabled,
+      styles: {
+        root: {
+          backgroundColor: currentTheme.background,
+          color: currentTheme.color,
+          borderColor: currentTheme.borderColor
+        }
+      },
+      style: {
+        width,
+        ...style
+      }
+    }
+  );
+}
 
 // src/DesignSystemProvider.tsx
 var import_antd4 = require("antd");

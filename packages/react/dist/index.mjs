@@ -178,6 +178,18 @@ var buttonTheme = {
     }
   }
 };
+var selectTheme = {
+  default: {
+    background: semanticTokens.colorBackground,
+    color: semanticTokens.colorText,
+    borderColor: semanticTokens.colorDisabled
+  },
+  disabled: {
+    background: semanticTokens.colorDisabled,
+    color: semanticTokens.colorTextDisabled,
+    borderColor: semanticTokens.colorDisabledr
+  }
+};
 
 // src/Button/Button.tsx
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -216,9 +228,27 @@ function Input(props) {
 // src/Select/Select.tsx
 import { Select as AntSelect } from "antd";
 import { jsx as jsx3 } from "react/jsx-runtime";
-var Select = (props) => {
-  return /* @__PURE__ */ jsx3(AntSelect, { ...props });
-};
+function Select({ width, height, style, disabled, ...props }) {
+  const currentTheme = disabled ? selectTheme.disabled : selectTheme.default;
+  return /* @__PURE__ */ jsx3(
+    AntSelect,
+    {
+      ...props,
+      disabled,
+      styles: {
+        root: {
+          backgroundColor: currentTheme.background,
+          color: currentTheme.color,
+          borderColor: currentTheme.borderColor
+        }
+      },
+      style: {
+        width,
+        ...style
+      }
+    }
+  );
+}
 
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";

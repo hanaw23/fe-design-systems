@@ -205,3 +205,17 @@ export const buttonTheme = {
     },
   },
 } as const;
+
+export const selectTheme = {
+  default: {
+    background: semanticTokens.colorBackground,
+    color: semanticTokens.colorText,
+    borderColor: semanticTokens.colorDisabled,
+  },
+
+  disabled: {
+    background: semanticTokens.colorDisabled,
+    color: semanticTokens.colorTextDisabled,
+    borderColor: semanticTokens.colorDisabledr,
+  },
+} as const;
