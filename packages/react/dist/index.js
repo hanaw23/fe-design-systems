@@ -36,15 +36,15 @@ var import_antd = require("antd");
 var import_tokens = require("@fe-design-systems/tokens");
 var theme = {
   token: {
-    colorPrimary: import_tokens.semanticTokens.colorPrimary,
-    colorText: import_tokens.semanticTokens.colorText,
-    colorBorder: import_tokens.semanticTokens.colorBorder,
-    colorTextPlaceholder: import_tokens.semanticTokens.colorTextSecondary,
-    colorError: import_tokens.semanticTokens.colorError,
-    colorWarning: import_tokens.semanticTokens.colorWarning,
-    colorSuccess: import_tokens.semanticTokens.colorSuccess,
-    colorBgBase: import_tokens.semanticTokens.colorBackground,
-    borderRadius: import_tokens.semanticTokens.borderRadius
+    colorPrimary: import_tokens.semanticTokens.color.primary,
+    colorText: import_tokens.semanticTokens.color.text,
+    colorBorder: import_tokens.semanticTokens.color.border,
+    colorTextPlaceholder: import_tokens.semanticTokens.color.textSecondary,
+    colorError: import_tokens.semanticTokens.color.error,
+    colorWarning: import_tokens.semanticTokens.color.warning,
+    colorSuccess: import_tokens.semanticTokens.color.success,
+    colorBgBase: import_tokens.semanticTokens.color.background,
+    borderRadius: import_tokens.radius.md
   }
 };
 var buttonTheme = {
@@ -211,24 +211,24 @@ var buttonTheme = {
 };
 var selectTheme = {
   default: {
-    background: import_tokens.semanticTokens.colorBackground,
-    color: import_tokens.semanticTokens.colorText,
-    borderColor: import_tokens.semanticTokens.colorDisabled
+    background: import_tokens.semanticTokens.color.background,
+    color: import_tokens.semanticTokens.color.text,
+    borderColor: import_tokens.semanticTokens.color.disabled
   },
   disabled: {
-    background: import_tokens.semanticTokens.colorDisabled,
-    color: import_tokens.semanticTokens.colorTextDisabled,
-    borderColor: import_tokens.semanticTokens.colorDisabledr
+    background: import_tokens.semanticTokens.color.disabled,
+    color: import_tokens.semanticTokens.color.textDisabled,
+    borderColor: import_tokens.semanticTokens.color.disabled
   }
 };
 var inputTheme = {
   default: {
-    color: import_tokens.semanticTokens.colorText,
-    borderColor: import_tokens.semanticTokens.colorBorder
+    color: import_tokens.semanticTokens.color.text,
+    borderColor: import_tokens.semanticTokens.color.border
   },
   danger: {
-    color: import_tokens.semanticTokens.colorError,
-    borderColor: import_tokens.semanticTokens.colorError
+    color: import_tokens.semanticTokens.color.error,
+    borderColor: import_tokens.semanticTokens.color.error
   }
 };
 
@@ -335,7 +335,7 @@ var import_antd4 = require("antd");
 var import_tokens2 = require("@fe-design-systems/tokens");
 var import_jsx_runtime4 = require("react/jsx-runtime");
 function Checkbox({ variant = "primary", styles, disabled, ...props }) {
-  const color = variant === "secondary" ? import_tokens2.semanticTokens.colorSecondary : import_tokens2.semanticTokens.colorPrimary;
+  const color = variant === "secondary" ? import_tokens2.semanticTokens.color.secondary : import_tokens2.semanticTokens.color.primary;
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_antd4.Checkbox,
     {
@@ -357,7 +357,7 @@ var import_antd5 = require("antd");
 var import_tokens3 = require("@fe-design-systems/tokens");
 var import_jsx_runtime5 = require("react/jsx-runtime");
 function Switch({ variant = "primary", styles, checked, defaultChecked, onChange, ...props }) {
-  const color = variant === "secondary" ? import_tokens3.semanticTokens.colorSecondary : import_tokens3.semanticTokens.colorPrimary;
+  const color = variant === "secondary" ? import_tokens3.semanticTokens.color.secondary : import_tokens3.semanticTokens.color.primary;
   const [internalChecked, setInternalChecked] = (0, import_react.useState)(defaultChecked ?? false);
   const isControlled = checked !== void 0;
   const currentChecked = isControlled ? checked : internalChecked;

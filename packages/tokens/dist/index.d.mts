@@ -83,18 +83,19 @@ declare const primitiveTokens: {
 };
 
 declare const semanticTokens: {
-    readonly colorPrimary: "#393E41";
-    readonly colorSecondary: "#8E1A0D";
-    readonly colorBorder: "#9CA3AF";
-    readonly colorDisabled: "#E5E7EB";
-    readonly colorError: "#FF151A";
-    readonly colorWarning: "#F2811D";
-    readonly colorSuccess: "#3ECC62";
-    readonly colorText: "#1C1E1F";
-    readonly colorTextSecondary: "#9CA3AF";
-    readonly colorBackground: "#ffffff";
-    readonly colorBackgroundSecondary: "#F8FAFC";
-    readonly borderRadius: 8;
+    readonly color: {
+        readonly primary: "#393E41";
+        readonly secondary: "#8E1A0D";
+        readonly border: "#9CA3AF";
+        readonly disabled: "#E5E7EB";
+        readonly error: "#FF151A";
+        readonly warning: "#F2811D";
+        readonly success: "#3ECC62";
+        readonly text: "#1C1E1F";
+        readonly textSecondary: "#9CA3AF";
+        readonly background: "#ffffff";
+        readonly backgroundSecondary: "#F8FAFC";
+    };
 };
 
 export { colors, primitiveTokens, radius, semanticTokens, spacing, typography };

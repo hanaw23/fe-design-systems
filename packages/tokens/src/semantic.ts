@@ -2,21 +2,17 @@ import { colors } from "./colors";
 import { radius } from "./radius";
 
 export const semanticTokens = {
-  colorPrimary: colors.gray600,
-  colorSecondary: colors.red700,
-
-  colorBorder: colors.gray400,
-  colorDisabled: colors.gray200,
-
-  colorError: colors.red500,
-  colorWarning: colors.yellow600,
-  colorSuccess: colors.green500,
-
-  colorText: colors.gray900,
-  colorTextSecondary: colors.gray400,
-
-  colorBackground: colors.white,
-  colorBackgroundSecondary: colors.gray100,
-
-  borderRadius: radius.md,
+  color: {
+    primary: colors.gray600,
+    secondary: colors.red700,
+    border: colors.gray400,
+    disabled: colors.gray200,
+    error: colors.red500,
+    warning: colors.yellow600,
+    success: colors.green500,
+    text: colors.gray900,
+    textSecondary: colors.gray400,
+    background: colors.white,
+    backgroundSecondary: colors.gray100,
+  },
 } as const;

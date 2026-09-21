@@ -16,7 +16,7 @@ npm install @fe-design-systems/tokens
 import { primitiveTokens, semanticTokens } from "@fe-design-systems/tokens";
 
 console.log(primitiveTokens.color.blue500);
-console.log(semanticTokens.colorPrimary);
+console.log(semanticTokens.color.primary);
 ```
 
 # Token Structure
@@ -38,10 +38,10 @@ primitiveTokens.radius;
 Semantic tokens describe how those values are used within the design system.
 
 ```ts
-semanticTokens.colorPrimary;
-semanticTokens.colorText;
-semanticTokens.colorBorder;
-semanticTokens.colorError;
+semanticTokens.color.primary;
+semanticTokens.color.text;
+semanticTokens.color.border;
+semanticTokens.color.error;
 ```
 
 # Framework Support

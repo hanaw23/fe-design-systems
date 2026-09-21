@@ -1,16 +1,16 @@
-import { semanticTokens, primitiveTokens } from "@fe-design-systems/tokens";
+import { semanticTokens, primitiveTokens, radius } from "@fe-design-systems/tokens";
 
 export const theme = {
   token: {
-    colorPrimary: semanticTokens.colorPrimary,
-    colorText: semanticTokens.colorText,
-    colorBorder: semanticTokens.colorBorder,
-    colorTextPlaceholder: semanticTokens.colorTextSecondary,
-    colorError: semanticTokens.colorError,
-    colorWarning: semanticTokens.colorWarning,
-    colorSuccess: semanticTokens.colorSuccess,
-    colorBgBase: semanticTokens.colorBackground,
-    borderRadius: semanticTokens.borderRadius,
+    colorPrimary: semanticTokens.color.primary,
+    colorText: semanticTokens.color.text,
+    colorBorder: semanticTokens.color.border,
+    colorTextPlaceholder: semanticTokens.color.textSecondary,
+    colorError: semanticTokens.color.error,
+    colorWarning: semanticTokens.color.warning,
+    colorSuccess: semanticTokens.color.success,
+    colorBgBase: semanticTokens.color.background,
+    borderRadius: radius.md,
   },
 };
 
@@ -208,26 +208,26 @@ export const buttonTheme = {
 
 export const selectTheme = {
   default: {
-    background: semanticTokens.colorBackground,
-    color: semanticTokens.colorText,
-    borderColor: semanticTokens.colorDisabled,
+    background: semanticTokens.color.background,
+    color: semanticTokens.color.text,
+    borderColor: semanticTokens.color.disabled,
   },
 
   disabled: {
-    background: semanticTokens.colorDisabled,
-    color: semanticTokens.colorTextDisabled,
-    borderColor: semanticTokens.colorDisabledr,
+    background: semanticTokens.color.disabled,
+    color: semanticTokens.color.textDisabled,
+    borderColor: semanticTokens.color.disabled,
   },
 } as const;
 
 export const inputTheme = {
   default: {
-    color: semanticTokens.colorText,
-    borderColor: semanticTokens.colorBorder,
+    color: semanticTokens.color.text,
+    borderColor: semanticTokens.color.border,
   },
 
   danger: {
-    color: semanticTokens.colorError,
-    borderColor: semanticTokens.colorError,
+    color: semanticTokens.color.error,
+    borderColor: semanticTokens.color.error,
   },
 } as const;
