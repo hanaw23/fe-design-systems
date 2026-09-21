@@ -320,9 +320,41 @@ function Checkbox({ variant = "primary", styles, disabled, ...props }) {
   );
 }
 
+// src/Switch/Switch.tsx
+import { useState } from "react";
+import { Switch as AntSwitch } from "antd";
+import { semanticTokens as semanticTokens3 } from "@fe-design-systems/tokens";
+import { jsx as jsx5 } from "react/jsx-runtime";
+function Switch({ variant = "primary", styles, checked, defaultChecked, onChange, ...props }) {
+  const color = variant === "secondary" ? semanticTokens3.colorSecondary : semanticTokens3.colorPrimary;
+  const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+  const isControlled = checked !== void 0;
+  const currentChecked = isControlled ? checked : internalChecked;
+  const handleChange = (nextChecked, event) => {
+    if (!isControlled) {
+      setInternalChecked(nextChecked);
+    }
+    onChange?.(nextChecked, event);
+  };
+  const switchStyles = (info) => {
+    const baseStyles = typeof styles === "function" ? styles(info) : styles;
+    return {
+      ...baseStyles,
+      root: {
+        ...baseStyles?.root,
+        ...currentChecked && !info.props.disabled ? {
+          backgroundColor: color,
+          borderColor: "transparent"
+        } : {}
+      }
+    };
+  };
+  return /* @__PURE__ */ jsx5(AntSwitch, { ...props, checked: currentChecked, onChange: handleChange, styles: switchStyles });
+}
+
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";
-import { jsx as jsx5 } from "react/jsx-runtime";
+import { jsx as jsx6 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -332,13 +364,14 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ jsx5(ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ jsx6(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,
   Checkbox,
   DesignSystemProvider,
   Input,
-  Select
+  Select,
+  Switch
 };
 //# sourceMappingURL=index.mjs.map

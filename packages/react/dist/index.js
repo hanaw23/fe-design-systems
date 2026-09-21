@@ -24,7 +24,8 @@ __export(index_exports, {
   Checkbox: () => Checkbox,
   DesignSystemProvider: () => DesignSystemProvider,
   Input: () => Input,
-  Select: () => Select
+  Select: () => Select,
+  Switch: () => Switch
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -350,9 +351,41 @@ function Checkbox({ variant = "primary", styles, disabled, ...props }) {
   );
 }
 
-// src/DesignSystemProvider.tsx
+// src/Switch/Switch.tsx
+var import_react = require("react");
 var import_antd5 = require("antd");
+var import_tokens3 = require("@fe-design-systems/tokens");
 var import_jsx_runtime5 = require("react/jsx-runtime");
+function Switch({ variant = "primary", styles, checked, defaultChecked, onChange, ...props }) {
+  const color = variant === "secondary" ? import_tokens3.semanticTokens.colorSecondary : import_tokens3.semanticTokens.colorPrimary;
+  const [internalChecked, setInternalChecked] = (0, import_react.useState)(defaultChecked ?? false);
+  const isControlled = checked !== void 0;
+  const currentChecked = isControlled ? checked : internalChecked;
+  const handleChange = (nextChecked, event) => {
+    if (!isControlled) {
+      setInternalChecked(nextChecked);
+    }
+    onChange?.(nextChecked, event);
+  };
+  const switchStyles = (info) => {
+    const baseStyles = typeof styles === "function" ? styles(info) : styles;
+    return {
+      ...baseStyles,
+      root: {
+        ...baseStyles?.root,
+        ...currentChecked && !info.props.disabled ? {
+          backgroundColor: color,
+          borderColor: "transparent"
+        } : {}
+      }
+    };
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Switch, { ...props, checked: currentChecked, onChange: handleChange, styles: switchStyles });
+}
+
+// src/DesignSystemProvider.tsx
+var import_antd6 = require("antd");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -362,7 +395,7 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.ConfigProvider, { theme: mergedTheme, children });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
@@ -370,6 +403,7 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
   Checkbox,
   DesignSystemProvider,
   Input,
-  Select
+  Select,
+  Switch
 });
 //# sourceMappingURL=index.js.map
