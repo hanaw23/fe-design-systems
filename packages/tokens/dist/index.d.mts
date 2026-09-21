@@ -11,6 +11,7 @@ declare const primitiveTokens: {
         readonly yellow600: "#F2811D";
         readonly red500: "#FF151A";
         readonly red700: "#8E1A0D";
+        readonly green500: "#3ECC62";
     };
     readonly spacing: {
         readonly xs: "4px";
@@ -32,6 +33,7 @@ declare const semanticTokens: {
     readonly colorDisabled: "#E5E7EB";
     readonly colorError: "#FF151A";
     readonly colorWarning: "#F2811D";
+    readonly colorSuccess: "#3ECC62";
     readonly colorText: "#1C1E1F";
     readonly colorTextSecondary: "#9CA3AF";
     readonly colorBackground: "#ffffff";

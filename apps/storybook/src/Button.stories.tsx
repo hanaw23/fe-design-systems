@@ -4,6 +4,10 @@ import { Button } from "@fe-design-systems/react";
 const meta = {
   title: "Components/Button",
   component: Button,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -12,34 +16,83 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    type: "primary",
-    size: "middle",
-    loading: false,
-    disabled: false,
-    danger: false,
-    children: "Button",
+    variant: "primary",
+    children: "Primary",
   },
 };
 
-export const Variants: Story = {
+export const Secondary: Story = {
   args: {
-    type: "primary",
-    children: "Button",
+    variant: "secondary",
+    children: "Secondary",
+  },
+};
+
+export const PrimaryOutline: Story = {
+  args: {
+    variant: "primary",
+    appearance: "outline",
+    children: "Primary Outline",
+  },
+};
+
+export const SecondaryOutline: Story = {
+  args: {
+    variant: "secondary",
+    appearance: "outline",
+    children: "Secondary Outline",
+  },
+};
+
+export const Success: Story = {
+  args: {
+    variant: "success",
+    children: "Success",
+  },
+};
+
+export const SuccessOutline: Story = {
+  args: {
+    variant: "success",
+    appearance: "outline",
+    children: "Success Outline",
   },
 };
 
 export const Danger: Story = {
   args: {
-    type: "primary",
-    danger: true,
-    children: "Delete",
+    variant: "danger",
+    children: "Danger",
   },
 };
 
-export const Loading: Story = {
+export const DangerOutline: Story = {
   args: {
-    type: "primary",
-    loading: true,
-    children: "Submitting",
+    variant: "danger",
+    appearance: "outline",
+    children: "Danger Outline",
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    variant: "warning",
+    children: "Warning",
+  },
+};
+
+export const WarningOutline: Story = {
+  args: {
+    variant: "warning",
+    appearance: "outline",
+    children: "Warning Outline",
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    variant: "primary",
+    disabled: true,
+    children: "Disabled",
   },
 };

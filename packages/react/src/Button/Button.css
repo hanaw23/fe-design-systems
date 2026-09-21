@@ -1,0 +1,55 @@
+.ds-button {
+  transition: all 0.2s ease;
+}
+
+/* Solid */
+.ds-button-solid.ds-button-primary {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+.ds-button-solid.ds-button-secondary {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+.ds-button-solid.ds-button-success {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+.ds-button-solid.ds-button-danger {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+.ds-button-solid.ds-button-warning {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+/* Outline */
+.ds-button-outline {
+  background-color: var(--ds-button-background);
+  color: var(--ds-button-color);
+  border-color: var(--ds-button-border);
+}
+
+/* Hover */
+.ds-button:hover:not(:disabled) {
+  background-color: var(--ds-button-hover-background);
+  color: var(--ds-button-hover-color);
+  border-color: var(--ds-button-hover-border);
+}
+
+/* Active */
+.ds-button:active:not(:disabled) {
+  background-color: var(--ds-button-active-background);
+  color: var(--ds-button-active-color);
+  border-color: var(--ds-button-active-border);
+}
