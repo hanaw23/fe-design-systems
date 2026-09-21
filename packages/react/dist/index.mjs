@@ -229,7 +229,7 @@ function Button({ variant = "primary", appearance = "solid", style, disabled, pr
 }
 
 // src/Input/Input.tsx
-import { Input as AntInput } from "antd";
+import { Input as AntInput, Typography } from "antd";
 import { Fragment, jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
 function Input(props) {
   const { width, height, password, otp, textarea, ...componentProps } = props;
@@ -242,30 +242,33 @@ function Input(props) {
   const style = {
     width,
     height,
-    inputStyles,
     ...props.style
   };
   const componentInput = () => {
-    if (otp) {
-      return /* @__PURE__ */ jsx2(AntInput.OTP, { ...componentProps, style });
+    switch (true) {
+      case password:
+        return /* @__PURE__ */ jsx2(AntInput.Password, { ...componentProps, style });
+      case otp:
+        return /* @__PURE__ */ jsx2(AntInput.OTP, { ...componentProps, style });
+      case textarea:
+        return /* @__PURE__ */ jsx2(AntInput.TextArea, { ...componentProps, style });
+      default:
+        return /* @__PURE__ */ jsx2(AntInput, { ...componentProps, style, styles: inputStyles });
     }
-    if (password) {
-      return /* @__PURE__ */ jsx2(AntInput.Password, { ...componentProps, style });
-    }
-    if (textarea) {
-      return /* @__PURE__ */ jsx2(AntInput.TextArea, { ...componentProps, style });
-    }
-    return /* @__PURE__ */ jsx2(AntInput, { ...componentProps, style });
   };
   return /* @__PURE__ */ jsxs2(Fragment, { children: [
     componentInput(),
     isError && /* @__PURE__ */ jsx2(
-      "div",
+      Typography.Text,
       {
+        type: "danger",
         style: {
-          marginTop: 2
+          display: "block",
+          marginTop: 4,
+          fontSize: 10,
+          lineHeight: "20px"
         },
-        children: props?.error
+        children: props.error
       }
     )
   ] });

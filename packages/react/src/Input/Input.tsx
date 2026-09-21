@@ -1,4 +1,4 @@
-import { Input as AntInput } from "antd";
+import { Input as AntInput, Typography } from "antd";
 import type { InputProps as AntInputProps } from "antd";
 import type { ComponentProps, ReactNode } from "react";
 import { inputTheme } from "../theme";
@@ -55,39 +55,41 @@ export function Input(props: InputProps) {
   const style = {
     width,
     height,
-    inputStyles,
     ...props.style,
   };
 
   const componentInput = () => {
-    if (otp) {
-      return <AntInput.OTP {...(componentProps as AntOTPProps)} style={style} />;
-    }
+    switch (true) {
+      case password:
+        return <AntInput.Password {...(componentProps as AntPasswordProps)} style={style} />;
 
-    if (password) {
-      return <AntInput.Password {...(componentProps as AntPasswordProps)} style={style} />;
-    }
+      case otp:
+        return <AntInput.OTP {...(componentProps as AntOTPProps)} style={style} />;
 
-    if (textarea) {
-      return <AntInput.TextArea {...(componentProps as AntTextAreaProps)} style={style} />;
-    }
+      case textarea:
+        return <AntInput.TextArea {...(componentProps as AntTextAreaProps)} style={style} />;
 
-    return <AntInput {...(componentProps as AntInputProps)} style={style} />;
+      default:
+        return <AntInput {...(componentProps as AntInputProps)} style={style} styles={inputStyles} />;
+    }
   };
 
   return (
     <>
       {componentInput()}
+
       {isError && (
-        <div
+        <Typography.Text
+          type="danger"
           style={{
-            marginTop: 2,
-            color: inputTheme.danger.color,
+            display: "block",
+            marginTop: 4,
             fontSize: 10,
+            lineHeight: "20px",
           }}
         >
-          {props?.error}
-        </div>
+          {props.error}
+        </Typography.Text>
       )}
     </>
   );

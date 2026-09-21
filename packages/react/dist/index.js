@@ -271,30 +271,33 @@ function Input(props) {
   const style = {
     width,
     height,
-    inputStyles,
     ...props.style
   };
   const componentInput = () => {
-    if (otp) {
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.OTP, { ...componentProps, style });
+    switch (true) {
+      case password:
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.Password, { ...componentProps, style });
+      case otp:
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.OTP, { ...componentProps, style });
+      case textarea:
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.TextArea, { ...componentProps, style });
+      default:
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { ...componentProps, style, styles: inputStyles });
     }
-    if (password) {
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.Password, { ...componentProps, style });
-    }
-    if (textarea) {
-      return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input.TextArea, { ...componentProps, style });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_antd2.Input, { ...componentProps, style });
   };
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
     componentInput(),
     isError && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      "div",
+      import_antd2.Typography.Text,
       {
+        type: "danger",
         style: {
-          marginTop: 2
+          display: "block",
+          marginTop: 4,
+          fontSize: 10,
+          lineHeight: "20px"
         },
-        children: props?.error
+        children: props.error
       }
     )
   ] });
