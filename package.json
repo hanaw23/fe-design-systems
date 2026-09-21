@@ -11,7 +11,8 @@
     "storybook": "npm run storybook -w @fe-design-systems/storybook",
     "build:react": "npm run build -w @fe-design-systems/react",
     "build:tokens": "npm run build -w @fe-design-systems/tokens",
-    "build": "npm run build:tokens && npm run build:react"
+    "build": "npm run build:tokens && npm run build:react",
+    "release": "node scripts/release.js"
   },
   "license": "MIT",
   "devDependencies": {
