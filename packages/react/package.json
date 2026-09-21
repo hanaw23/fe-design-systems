@@ -39,6 +39,7 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
+    "@ant-design/icons": "^6.3.4",
     "@fe-design-systems/tokens": "^0.1.0"
   }
 }

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "@fe-design-systems/react";
+import { PlusOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const meta = {
   title: "Components/Button",
@@ -93,5 +94,31 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     children: "Disabled",
+  },
+};
+
+// Prefix & Suffix
+export const Prefix: Story = {
+  args: {
+    variant: "primary",
+    prefix: <PlusOutlined />,
+    children: "Add Project",
+  },
+};
+
+export const Suffix: Story = {
+  args: {
+    variant: "primary",
+    suffix: <ArrowRightOutlined />,
+    children: "Continue",
+  },
+};
+
+export const PrefixAndSuffix: Story = {
+  args: {
+    variant: "primary",
+    prefix: <PlusOutlined />,
+    suffix: <ArrowRightOutlined />,
+    children: "Continue",
   },
 };

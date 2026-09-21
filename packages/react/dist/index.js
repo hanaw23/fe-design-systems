@@ -210,7 +210,7 @@ var buttonTheme = {
 
 // src/Button/Button.tsx
 var import_jsx_runtime = require("react/jsx-runtime");
-function Button({ variant = "primary", appearance = "solid", style, disabled, ...props }) {
+function Button({ variant = "primary", appearance = "solid", style, disabled, prefix, suffix, children, contentGap = 8, ...props }) {
   const currentTheme = buttonTheme[variant][appearance];
   const buttonStyle = disabled ? style : {
     backgroundColor: currentTheme.background,
@@ -218,7 +218,21 @@ function Button({ variant = "primary", appearance = "solid", style, disabled, ..
     borderColor: currentTheme.borderColor,
     ...style
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Button, { ...props, disabled, style: buttonStyle });
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Button, { ...props, disabled, style: buttonStyle, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+    "span",
+    {
+      style: {
+        display: "inline-flex",
+        alignItems: "center",
+        gap: contentGap
+      },
+      children: [
+        prefix,
+        children,
+        suffix
+      ]
+    }
+  ) });
 }
 
 // src/Input/Input.tsx
