@@ -29,29 +29,196 @@ module.exports = __toCommonJS(index_exports);
 
 // src/Button/Button.tsx
 var import_antd = require("antd");
+
+// src/theme.ts
 var import_tokens = require("@fe-design-systems/tokens");
+var theme = {
+  token: {
+    colorPrimary: import_tokens.semanticTokens.colorPrimary,
+    colorText: import_tokens.semanticTokens.colorText,
+    colorBorder: import_tokens.semanticTokens.colorBorder,
+    colorTextPlaceholder: import_tokens.semanticTokens.colorTextSecondary,
+    colorError: import_tokens.semanticTokens.colorError,
+    colorWarning: import_tokens.semanticTokens.colorWarning,
+    colorSuccess: import_tokens.semanticTokens.colorSuccess,
+    colorBgBase: import_tokens.semanticTokens.colorBackground,
+    borderRadius: import_tokens.semanticTokens.borderRadius
+  }
+};
+var buttonTheme = {
+  primary: {
+    solid: {
+      background: import_tokens.primitiveTokens.color.gray600,
+      color: import_tokens.primitiveTokens.color.white,
+      borderColor: import_tokens.primitiveTokens.color.gray600,
+      hover: {
+        background: import_tokens.primitiveTokens.color.gray900,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.gray900
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.gray900,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.gray900
+      }
+    },
+    outline: {
+      background: import_tokens.primitiveTokens.color.white,
+      color: import_tokens.primitiveTokens.color.gray600,
+      borderColor: import_tokens.primitiveTokens.color.gray600,
+      hover: {
+        background: import_tokens.primitiveTokens.color.gray600,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.gray600
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.gray900,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.gray900
+      }
+    }
+  },
+  secondary: {
+    solid: {
+      background: import_tokens.primitiveTokens.color.red700,
+      color: import_tokens.primitiveTokens.color.white,
+      borderColor: import_tokens.primitiveTokens.color.red700,
+      hover: {
+        background: import_tokens.primitiveTokens.color.red500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red500
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.red500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red500
+      }
+    },
+    outline: {
+      background: import_tokens.primitiveTokens.color.white,
+      color: import_tokens.primitiveTokens.color.red700,
+      borderColor: import_tokens.primitiveTokens.color.red700,
+      hover: {
+        background: import_tokens.primitiveTokens.color.red700,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red700
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.red500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red500
+      }
+    }
+  },
+  success: {
+    solid: {
+      background: import_tokens.primitiveTokens.color.green500,
+      color: import_tokens.primitiveTokens.color.white,
+      borderColor: import_tokens.primitiveTokens.color.green500,
+      hover: {
+        background: import_tokens.primitiveTokens.color.green500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.green500
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.green500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.green500
+      }
+    },
+    outline: {
+      background: import_tokens.primitiveTokens.color.white,
+      color: import_tokens.primitiveTokens.color.green500,
+      borderColor: import_tokens.primitiveTokens.color.green500,
+      hover: {
+        background: import_tokens.primitiveTokens.color.green500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.green500
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.green500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.green500
+      }
+    }
+  },
+  danger: {
+    solid: {
+      background: import_tokens.primitiveTokens.color.red500,
+      color: import_tokens.primitiveTokens.color.white,
+      borderColor: import_tokens.primitiveTokens.color.red500,
+      hover: {
+        background: import_tokens.primitiveTokens.color.red700,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red700
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.red700,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red700
+      }
+    },
+    outline: {
+      background: import_tokens.primitiveTokens.color.white,
+      color: import_tokens.primitiveTokens.color.red500,
+      borderColor: import_tokens.primitiveTokens.color.red500,
+      hover: {
+        background: import_tokens.primitiveTokens.color.red500,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red500
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.red700,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.red700
+      }
+    }
+  },
+  warning: {
+    solid: {
+      background: import_tokens.primitiveTokens.color.yellow600,
+      color: import_tokens.primitiveTokens.color.white,
+      borderColor: import_tokens.primitiveTokens.color.yellow600,
+      hover: {
+        background: import_tokens.primitiveTokens.color.yellow600,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.yellow600
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.yellow600,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.yellow600
+      }
+    },
+    outline: {
+      background: import_tokens.primitiveTokens.color.white,
+      color: import_tokens.primitiveTokens.color.yellow600,
+      borderColor: import_tokens.primitiveTokens.color.yellow600,
+      hover: {
+        background: import_tokens.primitiveTokens.color.yellow600,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.yellow600
+      },
+      active: {
+        background: import_tokens.primitiveTokens.color.yellow600,
+        color: import_tokens.primitiveTokens.color.white,
+        borderColor: import_tokens.primitiveTokens.color.yellow600
+      }
+    }
+  }
+};
+
+// src/Button/Button.tsx
 var import_jsx_runtime = require("react/jsx-runtime");
-function Button({ variant = "primary", appearance = "solid", style, ...props }) {
-  const colorMap = {
-    primary: import_tokens.semanticTokens.colorPrimary,
-    secondary: import_tokens.semanticTokens.colorSecondary,
-    success: import_tokens.semanticTokens.colorSuccess,
-    danger: import_tokens.semanticTokens.colorError,
-    warning: import_tokens.semanticTokens.colorWarning
-  };
-  const color = colorMap[variant];
-  const buttonStyle = appearance === "outline" ? {
-    backgroundColor: import_tokens.semanticTokens.colorBackground,
-    color,
-    borderColor: color,
-    ...style
-  } : {
-    backgroundColor: color,
-    color: import_tokens.semanticTokens.colorBackground,
-    borderColor: color,
+function Button({ variant = "primary", appearance = "solid", style, disabled, ...props }) {
+  const currentTheme = buttonTheme[variant][appearance];
+  const buttonStyle = disabled ? style : {
+    backgroundColor: currentTheme.background,
+    color: currentTheme.color,
+    borderColor: currentTheme.borderColor,
     ...style
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Button, { ...props, style: buttonStyle });
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_antd.Button, { ...props, disabled, style: buttonStyle });
 }
 
 // src/Input/Input.tsx
@@ -70,186 +237,6 @@ var Select = (props) => {
 
 // src/DesignSystemProvider.tsx
 var import_antd4 = require("antd");
-
-// src/theme.ts
-var import_tokens2 = require("@fe-design-systems/tokens");
-var theme = {
-  token: {
-    colorPrimary: import_tokens2.semanticTokens.colorPrimary,
-    colorText: import_tokens2.semanticTokens.colorText,
-    colorBorder: import_tokens2.semanticTokens.colorBorder,
-    colorTextPlaceholder: import_tokens2.semanticTokens.colorTextSecondary,
-    colorError: import_tokens2.semanticTokens.colorError,
-    colorWarning: import_tokens2.semanticTokens.colorWarning,
-    colorSuccess: import_tokens2.semanticTokens.colorSuccess,
-    colorBgBase: import_tokens2.semanticTokens.colorBackground,
-    borderRadius: import_tokens2.semanticTokens.borderRadius
-  }
-};
-var buttonTheme = {
-  primary: {
-    solid: {
-      background: import_tokens2.primitiveTokens.color.gray600,
-      color: import_tokens2.primitiveTokens.color.white,
-      borderColor: import_tokens2.primitiveTokens.color.gray600,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.gray900,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.gray900
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.gray900,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.gray900
-      }
-    },
-    outline: {
-      background: import_tokens2.primitiveTokens.color.white,
-      color: import_tokens2.primitiveTokens.color.gray600,
-      borderColor: import_tokens2.primitiveTokens.color.gray600,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.gray600,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.gray600
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.gray900,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.gray900
-      }
-    }
-  },
-  secondary: {
-    solid: {
-      background: import_tokens2.primitiveTokens.color.red700,
-      color: import_tokens2.primitiveTokens.color.white,
-      borderColor: import_tokens2.primitiveTokens.color.red700,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.red500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red500
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.red500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red500
-      }
-    },
-    outline: {
-      background: import_tokens2.primitiveTokens.color.white,
-      color: import_tokens2.primitiveTokens.color.red700,
-      borderColor: import_tokens2.primitiveTokens.color.red700,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.red700,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red700
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.red500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red500
-      }
-    }
-  },
-  success: {
-    solid: {
-      background: import_tokens2.primitiveTokens.color.green500,
-      color: import_tokens2.primitiveTokens.color.white,
-      borderColor: import_tokens2.primitiveTokens.color.green500,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.green500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.green500
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.green500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.green500
-      }
-    },
-    outline: {
-      background: import_tokens2.primitiveTokens.color.white,
-      color: import_tokens2.primitiveTokens.color.green500,
-      borderColor: import_tokens2.primitiveTokens.color.green500,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.green500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.green500
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.green500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.green500
-      }
-    }
-  },
-  danger: {
-    solid: {
-      background: import_tokens2.primitiveTokens.color.red500,
-      color: import_tokens2.primitiveTokens.color.white,
-      borderColor: import_tokens2.primitiveTokens.color.red500,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.red700,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red700
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.red700,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red700
-      }
-    },
-    outline: {
-      background: import_tokens2.primitiveTokens.color.white,
-      color: import_tokens2.primitiveTokens.color.red500,
-      borderColor: import_tokens2.primitiveTokens.color.red500,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.red500,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red500
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.red700,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.red700
-      }
-    }
-  },
-  warning: {
-    solid: {
-      background: import_tokens2.primitiveTokens.color.yellow600,
-      color: import_tokens2.primitiveTokens.color.white,
-      borderColor: import_tokens2.primitiveTokens.color.yellow600,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.yellow600,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.yellow600
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.yellow600,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.yellow600
-      }
-    },
-    outline: {
-      background: import_tokens2.primitiveTokens.color.white,
-      color: import_tokens2.primitiveTokens.color.yellow600,
-      borderColor: import_tokens2.primitiveTokens.color.yellow600,
-      hover: {
-        background: import_tokens2.primitiveTokens.color.yellow600,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.yellow600
-      },
-      active: {
-        background: import_tokens2.primitiveTokens.color.yellow600,
-        color: import_tokens2.primitiveTokens.color.white,
-        borderColor: import_tokens2.primitiveTokens.color.yellow600
-      }
-    }
-  }
-};
-
-// src/DesignSystemProvider.tsx
 var import_jsx_runtime4 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {

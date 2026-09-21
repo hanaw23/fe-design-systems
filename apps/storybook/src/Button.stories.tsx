@@ -91,7 +91,6 @@ export const WarningOutline: Story = {
 
 export const Disabled: Story = {
   args: {
-    variant: "primary",
     disabled: true,
     children: "Disabled",
   },

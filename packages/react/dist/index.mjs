@@ -1,60 +1,19 @@
 // src/Button/Button.tsx
 import { Button as AntButton } from "antd";
-import { semanticTokens } from "@fe-design-systems/tokens";
-import { jsx } from "react/jsx-runtime";
-function Button({ variant = "primary", appearance = "solid", style, ...props }) {
-  const colorMap = {
-    primary: semanticTokens.colorPrimary,
-    secondary: semanticTokens.colorSecondary,
-    success: semanticTokens.colorSuccess,
-    danger: semanticTokens.colorError,
-    warning: semanticTokens.colorWarning
-  };
-  const color = colorMap[variant];
-  const buttonStyle = appearance === "outline" ? {
-    backgroundColor: semanticTokens.colorBackground,
-    color,
-    borderColor: color,
-    ...style
-  } : {
-    backgroundColor: color,
-    color: semanticTokens.colorBackground,
-    borderColor: color,
-    ...style
-  };
-  return /* @__PURE__ */ jsx(AntButton, { ...props, style: buttonStyle });
-}
-
-// src/Input/Input.tsx
-import { Input as AntInput } from "antd";
-import { jsx as jsx2 } from "react/jsx-runtime";
-function Input(props) {
-  return /* @__PURE__ */ jsx2(AntInput, { ...props });
-}
-
-// src/Select/Select.tsx
-import { Select as AntSelect } from "antd";
-import { jsx as jsx3 } from "react/jsx-runtime";
-var Select = (props) => {
-  return /* @__PURE__ */ jsx3(AntSelect, { ...props });
-};
-
-// src/DesignSystemProvider.tsx
-import { ConfigProvider } from "antd";
 
 // src/theme.ts
-import { semanticTokens as semanticTokens2, primitiveTokens } from "@fe-design-systems/tokens";
+import { semanticTokens, primitiveTokens } from "@fe-design-systems/tokens";
 var theme = {
   token: {
-    colorPrimary: semanticTokens2.colorPrimary,
-    colorText: semanticTokens2.colorText,
-    colorBorder: semanticTokens2.colorBorder,
-    colorTextPlaceholder: semanticTokens2.colorTextSecondary,
-    colorError: semanticTokens2.colorError,
-    colorWarning: semanticTokens2.colorWarning,
-    colorSuccess: semanticTokens2.colorSuccess,
-    colorBgBase: semanticTokens2.colorBackground,
-    borderRadius: semanticTokens2.borderRadius
+    colorPrimary: semanticTokens.colorPrimary,
+    colorText: semanticTokens.colorText,
+    colorBorder: semanticTokens.colorBorder,
+    colorTextPlaceholder: semanticTokens.colorTextSecondary,
+    colorError: semanticTokens.colorError,
+    colorWarning: semanticTokens.colorWarning,
+    colorSuccess: semanticTokens.colorSuccess,
+    colorBgBase: semanticTokens.colorBackground,
+    borderRadius: semanticTokens.borderRadius
   }
 };
 var buttonTheme = {
@@ -220,7 +179,35 @@ var buttonTheme = {
   }
 };
 
+// src/Button/Button.tsx
+import { jsx } from "react/jsx-runtime";
+function Button({ variant = "primary", appearance = "solid", style, disabled, ...props }) {
+  const currentTheme = buttonTheme[variant][appearance];
+  const buttonStyle = disabled ? style : {
+    backgroundColor: currentTheme.background,
+    color: currentTheme.color,
+    borderColor: currentTheme.borderColor,
+    ...style
+  };
+  return /* @__PURE__ */ jsx(AntButton, { ...props, disabled, style: buttonStyle });
+}
+
+// src/Input/Input.tsx
+import { Input as AntInput } from "antd";
+import { jsx as jsx2 } from "react/jsx-runtime";
+function Input(props) {
+  return /* @__PURE__ */ jsx2(AntInput, { ...props });
+}
+
+// src/Select/Select.tsx
+import { Select as AntSelect } from "antd";
+import { jsx as jsx3 } from "react/jsx-runtime";
+var Select = (props) => {
+  return /* @__PURE__ */ jsx3(AntSelect, { ...props });
+};
+
 // src/DesignSystemProvider.tsx
+import { ConfigProvider } from "antd";
 import { jsx as jsx4 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {

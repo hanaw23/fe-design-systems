@@ -1,6 +1,6 @@
 import { Button as AntButton } from "antd";
 import type { ButtonProps as AntButtonProps } from "antd";
-import { semanticTokens } from "@fe-design-systems/tokens";
+import { buttonTheme } from "../theme";
 
 type ButtonVariant = "primary" | "secondary" | "success" | "danger" | "warning";
 type ButtonAppearence = "solid" | "outline";
@@ -10,31 +10,17 @@ export type ButtonProps = Omit<AntButtonProps, "type" | "color" | "variant"> & {
   appearance?: ButtonAppearence;
 };
 
-export function Button({ variant = "primary", appearance = "solid", style, ...props }: ButtonProps) {
-  const colorMap = {
-    primary: semanticTokens.colorPrimary,
-    secondary: semanticTokens.colorSecondary,
-    success: semanticTokens.colorSuccess,
-    danger: semanticTokens.colorError,
-    warning: semanticTokens.colorWarning,
-  };
+export function Button({ variant = "primary", appearance = "solid", style, disabled, ...props }: ButtonProps) {
+  const currentTheme = buttonTheme[variant][appearance];
 
-  const color = colorMap[variant];
+  const buttonStyle = disabled
+    ? style
+    : {
+        backgroundColor: currentTheme.background,
+        color: currentTheme.color,
+        borderColor: currentTheme.borderColor,
+        ...style,
+      };
 
-  const buttonStyle =
-    appearance === "outline"
-      ? {
-          backgroundColor: semanticTokens.colorBackground,
-          color,
-          borderColor: color,
-          ...style,
-        }
-      : {
-          backgroundColor: color,
-          color: semanticTokens.colorBackground,
-          borderColor: color,
-          ...style,
-        };
-
-  return <AntButton {...props} style={buttonStyle} />;
+  return <AntButton {...props} disabled={disabled} style={buttonStyle} />;
 }
