@@ -299,9 +299,28 @@ function Select({ width, height, style, disabled, ...props }) {
   );
 }
 
+// src/Checkbox/Checkbox.tsx
+import { Checkbox as AntCheckbox } from "antd";
+import { semanticTokens as semanticTokens2 } from "@fe-design-systems/tokens";
+import { jsx as jsx4 } from "react/jsx-runtime";
+function Checkbox({ variant = "primary", styles, ...props }) {
+  const color = variant === "secondary" ? semanticTokens2.colorSecondary : semanticTokens2.colorPrimary;
+  return /* @__PURE__ */ jsx4(
+    AntCheckbox,
+    {
+      ...props,
+      styles: {
+        icon: {
+          backgroundColor: color
+        }
+      }
+    }
+  );
+}
+
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";
-import { jsx as jsx4 } from "react/jsx-runtime";
+import { jsx as jsx5 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -311,10 +330,11 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ jsx4(ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ jsx5(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,
+  Checkbox,
   DesignSystemProvider,
   Input,
   Select

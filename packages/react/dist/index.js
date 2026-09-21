@@ -21,6 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
+  Checkbox: () => Checkbox,
   DesignSystemProvider: () => DesignSystemProvider,
   Input: () => Input,
   Select: () => Select
@@ -328,9 +329,28 @@ function Select({ width, height, style, disabled, ...props }) {
   );
 }
 
-// src/DesignSystemProvider.tsx
+// src/Checkbox/Checkbox.tsx
 var import_antd4 = require("antd");
+var import_tokens2 = require("@fe-design-systems/tokens");
 var import_jsx_runtime4 = require("react/jsx-runtime");
+function Checkbox({ variant = "primary", styles, ...props }) {
+  const color = variant === "secondary" ? import_tokens2.semanticTokens.colorSecondary : import_tokens2.semanticTokens.colorPrimary;
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    import_antd4.Checkbox,
+    {
+      ...props,
+      styles: {
+        icon: {
+          backgroundColor: color
+        }
+      }
+    }
+  );
+}
+
+// src/DesignSystemProvider.tsx
+var import_antd5 = require("antd");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -340,11 +360,12 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_antd4.ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.ConfigProvider, { theme: mergedTheme, children });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  Checkbox,
   DesignSystemProvider,
   Input,
   Select
