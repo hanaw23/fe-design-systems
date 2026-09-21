@@ -18,11 +18,6 @@ export const DesignSystemProvider = ({ children, theme: customTheme }: DesignSys
       ...defaultTheme.token,
       ...customTheme?.token,
     },
-
-    components: {
-      ...defaultTheme.components,
-      ...customTheme?.components,
-    },
   };
 
   return <ConfigProvider theme={mergedTheme}>{children}</ConfigProvider>;

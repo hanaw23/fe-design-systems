@@ -11,6 +11,7 @@ export const primitiveTokens = {
     yellow600: "#F2811D",
     red500: "#FF151A",
     red700: "#8E1A0D",
+    green500: "#3ECC62",
   },
 
   spacing: {
@@ -36,6 +37,7 @@ export const semanticTokens = {
 
   colorError: primitiveTokens.color.red500,
   colorWarning: primitiveTokens.color.yellow600,
+  colorSuccess: primitiveTokens.color.green500,
 
   colorText: primitiveTokens.color.gray900,
   colorTextSecondary: primitiveTokens.color.gray400,

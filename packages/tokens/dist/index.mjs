@@ -11,7 +11,8 @@ var primitiveTokens = {
     gray900: "#1C1E1F",
     yellow600: "#F2811D",
     red500: "#FF151A",
-    red700: "#8E1A0D"
+    red700: "#8E1A0D",
+    green500: "#3ECC62"
   },
   spacing: {
     xs: "4px",
@@ -33,6 +34,7 @@ var semanticTokens = {
   colorDisabled: primitiveTokens.color.gray200,
   colorError: primitiveTokens.color.red500,
   colorWarning: primitiveTokens.color.yellow600,
+  colorSuccess: primitiveTokens.color.green500,
   colorText: primitiveTokens.color.gray900,
   colorTextSecondary: primitiveTokens.color.gray400,
   colorBackground: primitiveTokens.color.white,
