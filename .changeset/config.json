@@ -3,12 +3,7 @@
   "baseBranch": "main",
   "access": "public",
   "format": "auto",
-  "changelog": [
-    "@changesets/changelog-github",
-    {
-      "repo": "hanaw23/fe-design-systems"
-    }
-  ],
+  "changelog": "@changesets/cli/changelog",
   "commit": true,
   "ignore": [],
   "fixed": [],
