@@ -11,14 +11,20 @@
     "storybook": "npm run storybook -w @fe-design-systems/storybook",
     "build:react": "npm run build -w @fe-design-systems/react",
     "build:tokens": "npm run build -w @fe-design-systems/tokens",
+    "build:storybook": "npm run build-storybook --workspace=@fe-design-systems/storybook",
     "build": "npm run build:tokens && npm run build:react",
-    "release": "node scripts/release.js"
+    "release": "node scripts/release.js",
+    "changeset": "changeset",
+    "changeset:version": "changeset version"
   },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "tsup": "^8.5.1",
+    "tsx": "^4.23.15",
     "typescript": "^5.7.3"
   }
 }

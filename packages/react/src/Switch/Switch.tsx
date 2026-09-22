@@ -11,7 +11,7 @@ export type SwitchProps = AntSwitchProps & {
 };
 
 export function Switch({ variant = "primary", styles, checked, defaultChecked, onChange, ...props }: SwitchProps) {
-  const color = variant === "secondary" ? semanticTokens.colorSecondary : semanticTokens.colorPrimary;
+  const color = variant === "secondary" ? semanticTokens.color.secondary : semanticTokens.color.primary;
 
   const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
   const isControlled = checked !== undefined;

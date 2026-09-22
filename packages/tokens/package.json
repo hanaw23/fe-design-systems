@@ -27,10 +27,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./css": "./dist/tokens.css"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsx scripts/generate-css.ts",
     "prepublishOnly": "npm run build"
   }
 }

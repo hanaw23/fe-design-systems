@@ -2,18 +2,18 @@
 import { Button as AntButton } from "antd";
 
 // src/theme.ts
-import { semanticTokens, primitiveTokens } from "@fe-design-systems/tokens";
+import { semanticTokens, primitiveTokens, radius } from "@fe-design-systems/tokens";
 var theme = {
   token: {
-    colorPrimary: semanticTokens.colorPrimary,
-    colorText: semanticTokens.colorText,
-    colorBorder: semanticTokens.colorBorder,
-    colorTextPlaceholder: semanticTokens.colorTextSecondary,
-    colorError: semanticTokens.colorError,
-    colorWarning: semanticTokens.colorWarning,
-    colorSuccess: semanticTokens.colorSuccess,
-    colorBgBase: semanticTokens.colorBackground,
-    borderRadius: semanticTokens.borderRadius
+    colorPrimary: semanticTokens.color.primary,
+    colorText: semanticTokens.color.text,
+    colorBorder: semanticTokens.color.border,
+    colorTextPlaceholder: semanticTokens.color.textSecondary,
+    colorError: semanticTokens.color.error,
+    colorWarning: semanticTokens.color.warning,
+    colorSuccess: semanticTokens.color.success,
+    colorBgBase: semanticTokens.color.background,
+    borderRadius: radius.md
   }
 };
 var buttonTheme = {
@@ -180,24 +180,24 @@ var buttonTheme = {
 };
 var selectTheme = {
   default: {
-    background: semanticTokens.colorBackground,
-    color: semanticTokens.colorText,
-    borderColor: semanticTokens.colorDisabled
+    background: semanticTokens.color.background,
+    color: semanticTokens.color.text,
+    borderColor: semanticTokens.color.disabled
   },
   disabled: {
-    background: semanticTokens.colorDisabled,
-    color: semanticTokens.colorTextDisabled,
-    borderColor: semanticTokens.colorDisabledr
+    background: semanticTokens.color.disabled,
+    color: semanticTokens.color.textDisabled,
+    borderColor: semanticTokens.color.disabled
   }
 };
 var inputTheme = {
   default: {
-    color: semanticTokens.colorText,
-    borderColor: semanticTokens.colorBorder
+    color: semanticTokens.color.text,
+    borderColor: semanticTokens.color.border
   },
   danger: {
-    color: semanticTokens.colorError,
-    borderColor: semanticTokens.colorError
+    color: semanticTokens.color.error,
+    borderColor: semanticTokens.color.error
   }
 };
 
@@ -304,7 +304,7 @@ import { Checkbox as AntCheckbox } from "antd";
 import { semanticTokens as semanticTokens2 } from "@fe-design-systems/tokens";
 import { jsx as jsx4 } from "react/jsx-runtime";
 function Checkbox({ variant = "primary", styles, disabled, ...props }) {
-  const color = variant === "secondary" ? semanticTokens2.colorSecondary : semanticTokens2.colorPrimary;
+  const color = variant === "secondary" ? semanticTokens2.color.secondary : semanticTokens2.color.primary;
   return /* @__PURE__ */ jsx4(
     AntCheckbox,
     {
@@ -326,7 +326,7 @@ import { Switch as AntSwitch } from "antd";
 import { semanticTokens as semanticTokens3 } from "@fe-design-systems/tokens";
 import { jsx as jsx5 } from "react/jsx-runtime";
 function Switch({ variant = "primary", styles, checked, defaultChecked, onChange, ...props }) {
-  const color = variant === "secondary" ? semanticTokens3.colorSecondary : semanticTokens3.colorPrimary;
+  const color = variant === "secondary" ? semanticTokens3.color.secondary : semanticTokens3.color.primary;
   const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
   const isControlled = checked !== void 0;
   const currentChecked = isControlled ? checked : internalChecked;
