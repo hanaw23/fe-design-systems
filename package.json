@@ -15,7 +15,8 @@
     "build": "npm run build:tokens && npm run build:react",
     "release": "node scripts/release.js",
     "changeset": "changeset",
-    "changeset:version": "changeset version"
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish"
   },
   "license": "MIT",
   "devDependencies": {
