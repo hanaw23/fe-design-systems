@@ -23,6 +23,13 @@ export const Overview: Story = {
   args: {
     placeholder: "Enter something...",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Input supports four modes: standard text input, password, OTP, and textarea. It also provides custom width, height, and error message handling.",
+      },
+    },
+  },
 };
 
 export const WithValue: Story = {

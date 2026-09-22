@@ -65,3 +65,33 @@ export const CustomTheme: Story = {
     </DesignSystemProvider>
   ),
 };
+
+export const NestedComponents: Story = {
+  render: () => (
+    <DesignSystemProvider>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          width: "320px",
+        }}
+      >
+        <Button variant="primary">Primary</Button>
+
+        <Button variant="secondary">Secondary</Button>
+
+        <Button variant="success">Success</Button>
+
+        <Button variant="danger">Danger</Button>
+      </div>
+    </DesignSystemProvider>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Components rendered inside DesignSystemProvider automatically receive the configured design system theme.",
+      },
+    },
+  },
+};

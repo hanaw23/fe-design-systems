@@ -39,6 +39,13 @@ export const Overview: Story = {
     placeholder: "Select an option",
     options,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Select provides a dropdown input with custom width and height properties while retaining the standard Ant Design Select API.",
+      },
+    },
+  },
 };
 
 export const WithValue: Story = {

@@ -23,6 +23,13 @@ export const Overview: Story = {
   args: {
     children: "Checkbox",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "Checkbox supports primary and secondary variants and can be used in checked, unchecked, and disabled states.",
+      },
+    },
+  },
 };
 
 export const Variants: Story = {

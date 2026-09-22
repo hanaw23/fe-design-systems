@@ -23,6 +23,13 @@ export const Overview: Story = {
   args: {
     children: "Button",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "The Button component supports five design system variants: primary, secondary, success, danger, and warning. Each variant can use either solid or outline appearance.",
+      },
+    },
+  },
 };
 
 export const Variants: Story = {

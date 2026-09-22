@@ -22,6 +22,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Overview: Story = {
   args: {},
+  parameters: {
+    docs: {
+      description: {
+        story: "Switch supports primary and secondary variants and can be used in both controlled and uncontrolled modes.",
+      },
+    },
+  },
 };
 
 export const Checked: Story = {
