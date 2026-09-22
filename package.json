@@ -11,7 +11,7 @@
     "storybook": "npm run storybook -w @fe-design-systems/storybook",
     "build:react": "npm run build -w @fe-design-systems/react",
     "build:tokens": "npm run build -w @fe-design-systems/tokens",
-    "build:storybook": "npm run build-storybook",
+    "build:storybook": "npm run build-storybook --workspace=@fe-design-systems/storybook",
     "build": "npm run build:tokens && npm run build:react",
     "release": "node scripts/release.js"
   },
