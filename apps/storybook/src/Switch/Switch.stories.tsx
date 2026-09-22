@@ -8,6 +8,11 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: "Switch is a toggle component with primary and secondary variants, supporting controlled and uncontrolled usage.",
+      },
+    },
   },
 } satisfies Meta<typeof Switch>;
 

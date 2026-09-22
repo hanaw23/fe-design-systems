@@ -7,6 +7,11 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: "Checkbox is a selectable input component with support for primary and secondary variants, checked states, and disabled states.",
+      },
+    },
   },
 } satisfies Meta<typeof Checkbox>;
 

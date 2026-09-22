@@ -7,6 +7,11 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: "Input is a flexible form component supporting text, password, OTP, and textarea modes, with custom sizing and error messages.",
+      },
+    },
   },
 } satisfies Meta<typeof Input>;
 

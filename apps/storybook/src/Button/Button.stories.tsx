@@ -7,6 +7,11 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: "Button is a reusable action component with support for different variants, appearances, sizes, and prefix or suffix content.",
+      },
+    },
   },
 } satisfies Meta<typeof Button>;
 

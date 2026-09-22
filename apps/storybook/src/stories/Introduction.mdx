@@ -4,64 +4,110 @@ import { Meta } from "@storybook/addon-docs/blocks";
 
 # FE Design Systems
 
-FE Design Systems is a reusable frontend design system built with
-TypeScript and designed to provide consistent UI components and design tokens.
+FE Design Systems is a reusable design system for building consistent web interfaces.
+
+It provides shared design tokens and reusable React components that can be used across different applications.
 
 ## Packages
 
 ### @fe-design-systems/tokens
 
-Provides framework-agnostic design tokens such as:
+Provides the foundational design tokens used across the design system.
+
+These include:
 
 - Colors
-- Spacing
-- Radius
 - Typography
+- Spacing
+- Border radius
+- Semantic colors
 
-Install:
-
-```bash
-npm install @fe-design-systems/tokens
-```
+The tokens can be used directly in an application or consumed by component packages.
 
 ### @fe-design-systems/react
 
-Provides React components built on top of the design tokens.
+Provides reusable React components built on top of the design tokens and Ant Design.
 
-Install:
+Available components currently include:
+
+- Button
+- Checkbox
+- Input
+- Select
+- Switch
+
+## How It Works
+
+The design system is structured in layers:
+
+```text
+@fe-design-systems/tokens
+        ↓
+Design Tokens
+        ↓
+@fe-design-systems/react
+        ↓
+Reusable Components
+        ↓
+Consumer Applications
+```
+
+This separation allows the design tokens to remain framework-agnostic while the React package provides framework-specific components.
+
+## Installation
+
+Install the packages you need:
 
 ```bash
-npm install @fe-design-systems/react
+npm install @fe-design-systems/tokens @fe-design-systems/react
 ```
 
-# Getting Started
+### Using Design Tokens
 
-Import the tokens you need:
+Import tokens directly from the tokens package:
 
 ```ts
-import { colors, spacing, radius, typography } from "@fe-design-systems/tokens";
+import { colors, spacing, radius, typography, semanticTokens } from "@fe-design-systems/tokens";
 ```
 
-Or load the CSS variables:
+The package also provides CSS variables:
 
 ```css
 @import "@fe-design-systems/tokens/css";
 ```
 
-For React components:
+This makes the tokens available as CSS custom properties.
+
+For Example:
+
+```css
+.my-card {
+  color: var(--color-text);
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+```
+
+### Using React Components
+
+Import components from the React package:
 
 ```ts
 import { Button } from "@fe-design-systems/react";
 
-export default function Example() {
-  return <Button>Click me</Button>;
+export function Example() {
+  return <Button variant="primary">Save</Button>;
 }
 ```
 
----
+Components expose a consistent API while building on established component primitives.
 
-## Run Storybook
+## Documentation
 
-```bash
-npm run storybook
-```
+Use the sidebar to explore:
+
+Foundations for design tokens and visual foundations
+Components for component APIs, states, variants, and usage examples
+
+Each component page includes interactive examples and automatically generated API documentation.

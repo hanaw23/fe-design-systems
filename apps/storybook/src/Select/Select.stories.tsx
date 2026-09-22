@@ -22,6 +22,11 @@ const meta = {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: "Select is a dropdown input component with support for custom sizing, disabled state, placeholders, and selectable options.",
+      },
+    },
   },
 } satisfies Meta<typeof Select>;
 
