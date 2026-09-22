@@ -1,0 +1,67 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Design System/Introduction" />
+
+# FE Design Systems
+
+FE Design Systems is a reusable frontend design system built with
+TypeScript and designed to provide consistent UI components and design tokens.
+
+## Packages
+
+### @fe-design-systems/tokens
+
+Provides framework-agnostic design tokens such as:
+
+- Colors
+- Spacing
+- Radius
+- Typography
+
+Install:
+
+```bash
+npm install @fe-design-systems/tokens
+```
+
+### @fe-design-systems/react
+
+Provides React components built on top of the design tokens.
+
+Install:
+
+```bash
+npm install @fe-design-systems/react
+```
+
+# Getting Started
+
+Import the tokens you need:
+
+```ts
+import { colors, spacing, radius, typography } from "@fe-design-systems/tokens";
+```
+
+Or load the CSS variables:
+
+```css
+@import "@fe-design-systems/tokens/css";
+```
+
+For React components:
+
+```ts
+import { Button } from "@fe-design-systems/react";
+
+export default function Example() {
+  return <Button>Click me</Button>;
+}
+```
+
+---
+
+## Run Storybook
+
+```bash
+npm run storybook
+```

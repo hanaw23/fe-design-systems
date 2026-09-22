@@ -1,40 +1,27 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import { Switch } from "@fe-design-systems/react";
 
 const meta = {
   title: "Components/Switch",
   component: Switch,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof Switch>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Overview: Story = {
   args: {},
 };
 
-export const PrimaryChecked: Story = {
+export const Checked: Story = {
   args: {
-    checked: true,
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-  },
-};
-
-export const SecondaryChecked: Story = {
-  args: {
-    variant: "secondary",
-    checked: true,
+    defaultChecked: true,
   },
 };
 
@@ -47,34 +34,37 @@ export const Disabled: Story = {
 export const DisabledChecked: Story = {
   args: {
     disabled: true,
-    checked: true,
+    defaultChecked: true,
   },
 };
 
-export const DisabledSecondary: Story = {
-  args: {
-    variant: "secondary",
-    disabled: true,
-  },
+export const Variant: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <Switch variant="primary" defaultChecked />
+      <Switch variant="secondary" defaultChecked />
+    </div>
+  ),
 };
 
-export const DisabledCheckedSecondary: Story = {
-  args: {
-    variant: "secondary",
-    disabled: true,
-    checked: true,
-  },
+export const Uncontrolled: Story = {
+  render: () => (
+    <Switch
+      defaultChecked
+      onChange={(checked) => {
+        console.log("Switch:", checked);
+      }}
+    />
+  ),
 };
 
-export const Small: Story = {
-  args: {
-    size: "small",
-    checked: true,
-  },
-};
-
-export const Loading: Story = {
-  args: {
-    loading: true,
+export const Controlled: Story = {
+  render: () => {
+    const [checked, setChecked] = useState(false);
+    return (
+      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+        <Switch checked={checked} onChange={setChecked} /> <span> {checked ? "ON" : "OFF"} </span>
+      </div>
+    );
   },
 };

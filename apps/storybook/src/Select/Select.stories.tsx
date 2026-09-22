@@ -1,111 +1,76 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { UserOutlined, SearchOutlined } from "@ant-design/icons";
 import { Select } from "@fe-design-systems/react";
+
+const options = [
+  {
+    value: "option-1",
+    label: "Option 1",
+  },
+  {
+    value: "option-2",
+    label: "Option 2",
+  },
+  {
+    value: "option-3",
+    label: "Option 3",
+  },
+];
 
 const meta = {
   title: "Components/Select",
   component: Select,
+  tags: ["autodocs"],
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 } satisfies Meta<typeof Select>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const options = [
-  {
-    value: "richard",
-    label: "Richard Doe",
-  },
-  {
-    value: "john",
-    label: "John Doe",
-  },
-  {
-    value: "jane",
-    label: "Jane Doe",
-  },
-];
-
-export const Default: Story = {
+export const Overview: Story = {
   args: {
+    placeholder: "Select an option",
     options,
-    placeholder: "Select a user",
+  },
+};
+
+export const WithValue: Story = {
+  args: {
+    value: "option-2",
+    options,
   },
 };
 
 export const Disabled: Story = {
   args: {
+    placeholder: "Select an option",
     options,
-    placeholder: "Select a user",
     disabled: true,
   },
 };
 
-export const Search: Story = {
-  args: {
-    options,
-    placeholder: "Search a user",
-    showSearch: true,
-  },
+export const CustomSize: Story = {
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+      }}
+    >
+      <Select width={200} placeholder="Width: 200px" options={options} />
+
+      <Select width="100%" height={48} placeholder="Width: 100%, Height: 48px" options={options} />
+    </div>
+  ),
 };
 
-export const Prefix: Story = {
-  args: {
-    options,
-    placeholder: "Select a user",
-    prefix: <UserOutlined />,
-  },
-};
-
-export const Suffix: Story = {
-  args: {
-    options,
-    placeholder: "Select a user",
-    suffixIcon: <SearchOutlined />,
-  },
-};
-
-export const Small: Story = {
-  args: {
-    options,
-    placeholder: "Small select",
-    size: "small",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    options,
-    placeholder: "Large select",
-    size: "large",
-  },
-};
-
-export const CustomWidth: Story = {
-  args: {
-    options,
-    placeholder: "Custom width",
-    width: 320,
-  },
-};
-
-export const CustomHeight: Story = {
-  args: {
-    options,
-    placeholder: "Custom height",
-    height: 320,
-  },
-};
-
-export const CustomWidthHeight: Story = {
-  args: {
-    options,
-    placeholder: "Custom width and height",
-    height: 320,
-    width: 320,
-  },
+export const States: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px", width: "240px" }}>
+      <Select placeholder="Default" options={options} /> <Select placeholder="Disabled" options={options} disabled />
+    </div>
+  ),
 };
