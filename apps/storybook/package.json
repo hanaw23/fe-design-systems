@@ -20,6 +20,6 @@
     "vitest": "latest"
   },
   "dependencies": {
-    "@fe-design-systems/react": "^0.1.3"
+    "@fe-design-systems/react": "^0.1.4"
   }
 }
