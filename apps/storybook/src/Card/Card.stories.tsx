@@ -52,9 +52,10 @@ export const Horizontal: Story = {
         alt="Europe Street"
         src={IMAGE_URL}
         style={{
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
+          width: "100%",
+          display: "block",
+          borderRadius: 0,
         }}
       />
     ),
@@ -66,7 +67,18 @@ export const Horizontal: Story = {
       title: "Title",
       description: "This is the description",
     },
-    children: "Card Content",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Card content.
+      </div>
+    ),
   },
 };
 
@@ -81,7 +93,18 @@ export const HorizontalWithAvatar: Story = {
       title: "Jane Cooper",
       description: "Product Designer",
     },
-    children: "A card with avatar.",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Card content.
+      </div>
+    ),
   },
 };
 
@@ -94,20 +117,26 @@ export const HorizontalWithPicture: Story = {
         alt="Mountain landscape"
         src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
         style={{
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
+          width: "100%",
+          display: "block",
+          borderRadius: 0,
         }}
       />
     ),
-    coverBorderRadius: {
-      topLeft: 8,
-      topRight: 0,
-      bottomLeft: 8,
-      bottomRight: 0,
-    },
     title: "Mountain Escape",
-    children: "Explore beautiful places and discover new experiences.",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Explore beautiful places and discover new experiences.
+      </div>
+    ),
   },
 };
 
@@ -120,6 +149,7 @@ export const WithContent: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Enter your name" />
@@ -139,7 +169,18 @@ export const WithMeta: Story = {
       title: "Object Card",
       description: "This is the description",
     },
-    children: "Card Content",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Content.
+      </div>
+    ),
   },
 };
 
@@ -158,6 +199,7 @@ export const WithMetaAndContent: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Enter something..." />
@@ -174,8 +216,10 @@ export const WithPictureAndMeta: Story = {
         alt="Europe Street"
         src={IMAGE_URL}
         style={{
+          objectFit: "cover",
           width: "100%",
           display: "block",
+          borderRadius: 0,
         }}
       />
     ),
@@ -211,8 +255,10 @@ export const WithPictureAndAvatar: Story = {
         alt="Europe Street"
         src={IMAGE_URL}
         style={{
+          objectFit: "cover",
           width: "100%",
           display: "block",
+          borderRadius: 0,
         }}
       />
     ),
@@ -235,6 +281,7 @@ export const WithPictureAndAvatar: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Enter your email" />
@@ -252,8 +299,10 @@ export const WithCoverBorderRadius: Story = {
         alt="Europe Street"
         src={IMAGE_URL}
         style={{
+          objectFit: "cover",
           width: "100%",
           display: "block",
+          borderRadius: 0,
         }}
       />
     ),
@@ -264,7 +313,18 @@ export const WithCoverBorderRadius: Story = {
       bottomRight: 16,
     },
     title: "Rounded Cover",
-    children: "Card with custom cover border radius.",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Card with custom cover border radius.
+      </div>
+    ),
   },
 };
 
@@ -276,8 +336,10 @@ export const WithCustomCoverBorderRadius: Story = {
         alt="Europe Street"
         src={IMAGE_URL}
         style={{
+          objectFit: "cover",
           width: "100%",
           display: "block",
+          borderRadius: 0,
         }}
       />
     ),
@@ -288,7 +350,18 @@ export const WithCustomCoverBorderRadius: Story = {
       bottomRight: 24,
     },
     title: "Custom Cover Radius",
-    children: "Each corner can be customized independently.",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Each corner can be customized independently.
+      </div>
+    ),
   },
 };
 
@@ -301,14 +374,26 @@ export const HorizontalWithCoverBorderRadius: Story = {
         alt="Mountain landscape"
         src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
         style={{
-          width: "100%",
-          height: "100%",
           objectFit: "cover",
+          width: "100%",
+          display: "block",
+          borderRadius: 0,
         }}
       />
     ),
     title: "Horizontal Card",
-    children: "Default horizontal cover radius behavior.",
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 12,
+          marginTop: 16,
+        }}
+      >
+        Default horizontal cover radius behavior.
+      </div>
+    ),
   },
   parameters: {
     docs: {
@@ -328,21 +413,32 @@ export const HorizontalWithCustomCoverBorderRadius: Story = {
         alt="Workspace"
         src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
         style={{
+          objectFit: "cover",
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          display: "block",
+          borderRadius: 0,
         }}
       />
     ),
     coverBorderRadius: {
-      topLeft: 16,
-      topRight: 16,
-      bottomLeft: 16,
-      bottomRight: 16,
+      topLeft: 8,
+      bottomLeft: 8,
     },
     meta: {
       title: "Design Team",
-      description: "Frontend & Design System",
+      description: (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 12,
+            marginTop: 12,
+          }}
+        >
+          Frontend & Design System
+        </div>
+      ),
     },
     children: (
       <div
@@ -350,10 +446,10 @@ export const HorizontalWithCustomCoverBorderRadius: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 12,
+          marginTop: 12,
         }}
       >
         <div>A reusable design system for building consistent interfaces.</div>
-
         <Button variant="primary">View Team</Button>
       </div>
     ),
@@ -445,12 +541,18 @@ export const HorizontalWithAvatarAndButton: Story = {
         alt="Workspace"
         src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
         style={{
+          objectFit: "cover",
           width: "100%",
           height: "100%",
-          objectFit: "cover",
+          display: "block",
+          borderRadius: 0,
         }}
       />
     ),
+    coverBorderRadius: {
+      topLeft: 8,
+      bottomLeft: 8,
+    },
     meta: {
       avatar: {
         src: "https://api.dicebear.com/10.x/lorelei/svg?seed=2",
@@ -464,10 +566,10 @@ export const HorizontalWithAvatarAndButton: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 12,
+          marginTop: 16,
         }}
       >
         <div>A reusable design system for building consistent interfaces.</div>
-
         <Button variant="primary">View Team</Button>
       </div>
     ),
@@ -484,6 +586,7 @@ export const Hoverable: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Search..." />
@@ -510,6 +613,7 @@ export const Small: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 12,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Input" />
@@ -529,6 +633,7 @@ export const Borderless: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Input" />
@@ -549,6 +654,7 @@ export const CustomSize: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
+          marginTop: 16,
         }}
       >
         <Input placeholder="Enter your email" />
