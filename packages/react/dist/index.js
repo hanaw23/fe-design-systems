@@ -391,12 +391,35 @@ function Switch({ variant = "primary", styles, checked, defaultChecked, onChange
 // src/Card/Card.tsx
 var import_antd6 = require("antd");
 var import_jsx_runtime6 = require("react/jsx-runtime");
-function Card({ width, height, layout = "vertical", style, styles, meta, children, cover, ...props }) {
+function Card({ width, height, layout = "vertical", style, styles, meta, children, cover, coverBorderRadius, ...props }) {
   const isHorizontal = layout === "horizontal";
   const baseStyles = typeof styles === "function" ? styles({ props }) : styles;
   const horizontalRootStyle = {
     display: "flex",
     flexDirection: "row"
+  };
+  const coverStyle = {
+    ...baseStyles?.cover,
+    ...isHorizontal && {
+      width: 180,
+      flexShrink: 0,
+      margin: 0,
+      borderTopRightRadius: coverBorderRadius?.topRight ?? 0,
+      borderBottomRightRadius: coverBorderRadius?.bottomRight ?? 0,
+      overflow: "hidden"
+    },
+    ...coverBorderRadius?.topLeft !== void 0 && {
+      borderTopLeftRadius: coverBorderRadius.topLeft
+    },
+    ...coverBorderRadius?.bottomLeft !== void 0 && {
+      borderBottomLeftRadius: coverBorderRadius.bottomLeft
+    },
+    ...coverBorderRadius?.topRight !== void 0 && {
+      borderTopRightRadius: coverBorderRadius.topRight
+    },
+    ...coverBorderRadius?.bottomRight !== void 0 && {
+      borderBottomRightRadius: coverBorderRadius.bottomRight
+    }
   };
   const cardStyles = {
     ...baseStyles,
@@ -406,13 +429,10 @@ function Card({ width, height, layout = "vertical", style, styles, meta, childre
       borderColor: defaultTheme.borderColor,
       ...isHorizontal ? horizontalRootStyle : {}
     },
+    ...cover && {
+      cover: coverStyle
+    },
     ...isHorizontal && {
-      cover: {
-        ...baseStyles?.cover,
-        width: 180,
-        flexShrink: 0,
-        margin: 0
-      },
       body: {
         ...baseStyles?.body,
         flex: 1

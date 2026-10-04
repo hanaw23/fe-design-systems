@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button, Card, Input } from "@fe-design-systems/react";
 
+const IMAGE_URL = "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png";
+
+const AVATAR_URL = "https://api.dicebear.com/10.x/lorelei/svg?seed=1";
+
 const meta = {
   title: "Components/Card",
   component: Card,
@@ -46,7 +50,7 @@ export const Horizontal: Story = {
     cover: (
       <img
         alt="Europe Street"
-        src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
+        src={IMAGE_URL}
         style={{
           width: "100%",
           height: "100%",
@@ -54,21 +58,56 @@ export const Horizontal: Story = {
         }}
       />
     ),
+    coverBorderRadius: {
+      topLeft: 8,
+      bottomLeft: 8,
+    },
     meta: {
       title: "Title",
       description: "This is the description",
     },
-    children: (
-      <div
+    children: "Card Content",
+  },
+};
+
+export const HorizontalWithAvatar: Story = {
+  args: {
+    layout: "horizontal",
+    width: 600,
+    meta: {
+      avatar: {
+        src: AVATAR_URL,
+      },
+      title: "Jane Cooper",
+      description: "Product Designer",
+    },
+    children: "A card with avatar.",
+  },
+};
+
+export const HorizontalWithPicture: Story = {
+  args: {
+    layout: "horizontal",
+    width: 600,
+    cover: (
+      <img
+        alt="Mountain landscape"
+        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          marginTop: 16,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
         }}
-      >
-        Card Content
-      </div>
+      />
     ),
+    coverBorderRadius: {
+      topLeft: 8,
+      topRight: 0,
+      bottomLeft: 8,
+      bottomRight: 0,
+    },
+    title: "Mountain Escape",
+    children: "Explore beautiful places and discover new experiences.",
   },
 };
 
@@ -95,22 +134,12 @@ export const WithMeta: Story = {
   args: {
     meta: {
       avatar: {
-        src: "https://api.dicebear.com/10.x/lorelei/svg?seed=1",
+        src: AVATAR_URL,
       },
       title: "Object Card",
       description: "This is the description",
     },
-    children: (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          marginTop: 16,
-        }}
-      >
-        Card Content
-      </div>
-    ),
+    children: "Card Content",
   },
 };
 
@@ -118,7 +147,7 @@ export const WithMetaAndContent: Story = {
   args: {
     meta: {
       avatar: {
-        src: "https://api.dicebear.com/10.x/lorelei/svg?seed=1",
+        src: AVATAR_URL,
       },
       title: "Object Card",
       description: "This is the description",
@@ -129,7 +158,6 @@ export const WithMetaAndContent: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Enter something..." />
@@ -141,10 +169,25 @@ export const WithMetaAndContent: Story = {
 
 export const WithPictureAndMeta: Story = {
   args: {
-    cover: <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />,
+    cover: (
+      <img
+        alt="Europe Street"
+        src={IMAGE_URL}
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      />
+    ),
+    coverBorderRadius: {
+      topLeft: 8,
+      topRight: 0,
+      bottomLeft: 8,
+      bottomRight: 0,
+    },
     meta: {
       title: "Title",
-      description: "description",
+      description: "Description",
     },
     children: (
       <div
@@ -152,7 +195,6 @@ export const WithPictureAndMeta: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Enter your message" />
@@ -162,7 +204,95 @@ export const WithPictureAndMeta: Story = {
   },
 };
 
-export const HorizontalWithPicture: Story = {
+export const WithPictureAndAvatar: Story = {
+  args: {
+    cover: (
+      <img
+        alt="Europe Street"
+        src={IMAGE_URL}
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      />
+    ),
+    coverBorderRadius: {
+      topLeft: 8,
+      topRight: 0,
+      bottomLeft: 8,
+      bottomRight: 0,
+    },
+    meta: {
+      avatar: {
+        src: AVATAR_URL,
+      },
+      title: "Title",
+      description: "Description",
+    },
+    children: (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
+        }}
+      >
+        <Input placeholder="Enter your email" />
+        <Button variant="secondary">Continue</Button>
+      </div>
+    ),
+  },
+};
+
+export const WithCoverBorderRadius: Story = {
+  args: {
+    width: 500,
+    cover: (
+      <img
+        alt="Europe Street"
+        src={IMAGE_URL}
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      />
+    ),
+    coverBorderRadius: {
+      topLeft: 16,
+      topRight: 16,
+      bottomLeft: 16,
+      bottomRight: 16,
+    },
+    title: "Rounded Cover",
+    children: "Card with custom cover border radius.",
+  },
+};
+
+export const WithCustomCoverBorderRadius: Story = {
+  args: {
+    width: 500,
+    cover: (
+      <img
+        alt="Europe Street"
+        src={IMAGE_URL}
+        style={{
+          width: "100%",
+          display: "block",
+        }}
+      />
+    ),
+    coverBorderRadius: {
+      topLeft: 24,
+      topRight: 4,
+      bottomLeft: 4,
+      bottomRight: 24,
+    },
+    title: "Custom Cover Radius",
+    children: "Each corner can be customized independently.",
+  },
+};
+
+export const HorizontalWithCoverBorderRadius: Story = {
   args: {
     layout: "horizontal",
     width: 600,
@@ -177,60 +307,63 @@ export const HorizontalWithPicture: Story = {
         }}
       />
     ),
-    title: "Mountain Escape",
-    children: "Explore beautiful places and discover new experiences.",
+    title: "Horizontal Card",
+    children: "Default horizontal cover radius behavior.",
   },
-};
-
-export const WithPictureAndAvatar: Story = {
-  args: {
-    cover: <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />,
-    meta: {
-      avatar: {
-        src: "https://api.dicebear.com/10.x/lorelei/svg?seed=1",
+  parameters: {
+    docs: {
+      description: {
+        story: "In horizontal layout, the cover keeps Ant Design's default left-side radius while the right-side corners are set to 0.",
       },
-      title: "Title",
-      description: "description",
     },
-    children: (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 16,
-          marginTop: 16,
-        }}
-      >
-        <Input placeholder="Enter your email" />
-        <Button variant="secondary">Continue</Button>
-      </div>
-    ),
   },
 };
 
-export const HorizontalWithAvatar: Story = {
+export const HorizontalWithCustomCoverBorderRadius: Story = {
   args: {
     layout: "horizontal",
     width: 600,
+    cover: (
+      <img
+        alt="Workspace"
+        src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    ),
+    coverBorderRadius: {
+      topLeft: 16,
+      topRight: 16,
+      bottomLeft: 16,
+      bottomRight: 16,
+    },
     meta: {
-      avatar: {
-        src: "https://api.dicebear.com/10.x/lorelei/svg?seed=1",
-      },
-      title: "Jane Cooper",
-      description: "Product Designer",
+      title: "Design Team",
+      description: "Frontend & Design System",
     },
     children: (
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: 16,
-          marginTop: 16,
+          gap: 12,
         }}
       >
-        A card with avatar.
+        <div>A reusable design system for building consistent interfaces.</div>
+
+        <Button variant="primary">View Team</Button>
       </div>
     ),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "The coverBorderRadius prop overrides the default horizontal cover corner behavior.",
+      },
+    },
   },
 };
 
@@ -243,7 +376,6 @@ export const WithActions: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Enter something..." />
@@ -298,7 +430,6 @@ export const CardWithButton: Story = {
         }}
       >
         <Input placeholder="Enter your email" />
-
         <Button variant="primary">Continue</Button>
       </div>
     ),
@@ -333,7 +464,6 @@ export const HorizontalWithAvatarAndButton: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 12,
-          MarginTop: 16,
         }}
       >
         <div>A reusable design system for building consistent interfaces.</div>
@@ -354,7 +484,6 @@ export const Hoverable: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Search..." />
@@ -381,7 +510,6 @@ export const Small: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 12,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Input" />
@@ -401,7 +529,6 @@ export const Borderless: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Input" />
@@ -422,7 +549,6 @@ export const CustomSize: Story = {
           display: "flex",
           flexDirection: "column",
           gap: 16,
-          marginTop: 16,
         }}
       >
         <Input placeholder="Enter your email" />
