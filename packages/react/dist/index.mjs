@@ -16,6 +16,10 @@ var theme = {
     borderRadius: radius.md
   }
 };
+var defaultTheme = {
+  color: semanticTokens.color.text,
+  borderColor: semanticTokens.color.border
+};
 var buttonTheme = {
   primary: {
     solid: {
@@ -352,9 +356,59 @@ function Switch({ variant = "primary", styles, checked, defaultChecked, onChange
   return /* @__PURE__ */ jsx5(AntSwitch, { ...props, checked: currentChecked, onChange: handleChange, styles: switchStyles });
 }
 
+// src/Card/Card.tsx
+import { Avatar, Card as AntCard } from "antd";
+import { jsx as jsx6, jsxs as jsxs3 } from "react/jsx-runtime";
+function Card({ width, height, layout = "vertical", style, styles, meta, children, cover, ...props }) {
+  const isHorizontal = layout === "horizontal";
+  const baseStyles = typeof styles === "function" ? styles({ props }) : styles;
+  const horizontalRootStyle = {
+    display: "flex",
+    flexDirection: "row"
+  };
+  const cardStyles = {
+    ...baseStyles,
+    root: {
+      ...baseStyles?.root,
+      color: defaultTheme.color,
+      borderColor: defaultTheme.borderColor,
+      ...isHorizontal ? horizontalRootStyle : {}
+    },
+    ...isHorizontal && {
+      cover: {
+        ...baseStyles?.cover,
+        width: 180,
+        flexShrink: 0,
+        margin: 0
+      },
+      body: {
+        ...baseStyles?.body,
+        flex: 1
+      }
+    }
+  };
+  return /* @__PURE__ */ jsxs3(
+    AntCard,
+    {
+      ...props,
+      cover,
+      styles: cardStyles,
+      style: {
+        width,
+        height,
+        ...style
+      },
+      children: [
+        meta && /* @__PURE__ */ jsx6(AntCard.Meta, { avatar: meta.avatar ? /* @__PURE__ */ jsx6(Avatar, { src: meta.avatar.src, alt: meta.avatar.alt, size: meta.avatar.size }) : void 0, title: meta.title, description: meta.description }),
+        children
+      ]
+    }
+  );
+}
+
 // src/DesignSystemProvider.tsx
 import { ConfigProvider } from "antd";
-import { jsx as jsx6 } from "react/jsx-runtime";
+import { jsx as jsx7 } from "react/jsx-runtime";
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -364,10 +418,11 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ jsx6(ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ jsx7(ConfigProvider, { theme: mergedTheme, children });
 };
 export {
   Button,
+  Card,
   Checkbox,
   DesignSystemProvider,
   Input,

@@ -14,6 +14,11 @@ export const theme = {
   },
 };
 
+export const defaultTheme = {
+  color: semanticTokens.color.text,
+  borderColor: semanticTokens.color.border,
+} as const;
+
 export const buttonTheme = {
   primary: {
     solid: {

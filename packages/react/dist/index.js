@@ -21,6 +21,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   Button: () => Button,
+  Card: () => Card,
   Checkbox: () => Checkbox,
   DesignSystemProvider: () => DesignSystemProvider,
   Input: () => Input,
@@ -46,6 +47,10 @@ var theme = {
     colorBgBase: import_tokens.semanticTokens.color.background,
     borderRadius: import_tokens.radius.md
   }
+};
+var defaultTheme = {
+  color: import_tokens.semanticTokens.color.text,
+  borderColor: import_tokens.semanticTokens.color.border
 };
 var buttonTheme = {
   primary: {
@@ -383,9 +388,59 @@ function Switch({ variant = "primary", styles, checked, defaultChecked, onChange
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_antd5.Switch, { ...props, checked: currentChecked, onChange: handleChange, styles: switchStyles });
 }
 
-// src/DesignSystemProvider.tsx
+// src/Card/Card.tsx
 var import_antd6 = require("antd");
 var import_jsx_runtime6 = require("react/jsx-runtime");
+function Card({ width, height, layout = "vertical", style, styles, meta, children, cover, ...props }) {
+  const isHorizontal = layout === "horizontal";
+  const baseStyles = typeof styles === "function" ? styles({ props }) : styles;
+  const horizontalRootStyle = {
+    display: "flex",
+    flexDirection: "row"
+  };
+  const cardStyles = {
+    ...baseStyles,
+    root: {
+      ...baseStyles?.root,
+      color: defaultTheme.color,
+      borderColor: defaultTheme.borderColor,
+      ...isHorizontal ? horizontalRootStyle : {}
+    },
+    ...isHorizontal && {
+      cover: {
+        ...baseStyles?.cover,
+        width: 180,
+        flexShrink: 0,
+        margin: 0
+      },
+      body: {
+        ...baseStyles?.body,
+        flex: 1
+      }
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    import_antd6.Card,
+    {
+      ...props,
+      cover,
+      styles: cardStyles,
+      style: {
+        width,
+        height,
+        ...style
+      },
+      children: [
+        meta && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Card.Meta, { avatar: meta.avatar ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.Avatar, { src: meta.avatar.src, alt: meta.avatar.alt, size: meta.avatar.size }) : void 0, title: meta.title, description: meta.description }),
+        children
+      ]
+    }
+  );
+}
+
+// src/DesignSystemProvider.tsx
+var import_antd7 = require("antd");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 var DesignSystemProvider = ({ children, theme: customTheme }) => {
   const mergedTheme = {
     ...theme,
@@ -395,11 +450,12 @@ var DesignSystemProvider = ({ children, theme: customTheme }) => {
       ...customTheme?.token
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_antd6.ConfigProvider, { theme: mergedTheme, children });
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_antd7.ConfigProvider, { theme: mergedTheme, children });
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Button,
+  Card,
   Checkbox,
   DesignSystemProvider,
   Input,
